@@ -1,15 +1,39 @@
-$(document).ready(resizeScreen);
-$(window).resize(resizeScreen);
+require.config({
+	paths: {
+		jquery: 'lib/jquery-1.9.0',
+		underscore: 'lib/underscore',
+		backbone: 'lib/backbone',
+		handlebars: 'lib/handlebars-1.0.rc.1',
+		text: 'lib/text',
+	},
+  	shim: {
+		jquery: {
+			exports: '$'
+    	},
+		underscore: {
+			exports: '_'
+    	},
+    	backbone: {
+      		deps: ["underscore", "jquery"],
+      		exports: "Backbone"
+    	},
+		handlebars: {
+			exports: 'Handlebars'
+    	}
+  	}
+});
 
-function resizeScreen() {
-	var mainNav = $('#main-nav');
-	var navHeight = mainNav.height() - 40;
-	var linkSideLength = navHeight / 8 - 20;
-	var mainNavWidth = linkSideLength + 40
-	
-	$('.link').height(linkSideLength).width(linkSideLength);
-	
-	mainNav.width(mainNavWidth);
-	
-	$('#content').height($('body').height() - 40);
-}
+require([
+  // Load our app module and pass it to our definition function
+  'app',
+], function(App){
+  // The "app" dependency is passed in as "App"
+  App.initialize();
+});
+
+
+
+
+
+
+
