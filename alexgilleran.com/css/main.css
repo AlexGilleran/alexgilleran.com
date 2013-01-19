@@ -126,11 +126,15 @@ header {
 #content .oblong {
     position: absolute;
     left: 0; top: 20px; right: 0; bottom: 22px;
-    background: rgba(0, 0, 255, 0.1);
+    background: rgba(0, 0, 255, 0.5);
     margin: 0;
 }
 
-#content .oblong:after {
+.glass {
+	
+}
+
+.glass:after {
     border: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 0;
     -webkit-background-origin: border-box;
     -moz-background-origin: border;
@@ -143,30 +147,14 @@ header {
 	left: 0;
 	right: 0;
 	background: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
-    background: -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));
-    background: linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
-}
-
-#main-nav .oblong:after {
-    border: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 0;
-    -webkit-background-origin: border-box;
-    -moz-background-origin: border;
-    background-origin: border-box;
-    content: " ";
-    display: block;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, .15)), to(rgba(0, 0, 0, .25))), -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
-    background: -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+	background: -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+    /**background: -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));*/
     background: linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
 }
 
 .oblong {
     position: relative;
-    display: block;
+    float: left;
 	border-radius: 10px;
 	border: solid 1px #000000;
 	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
@@ -180,6 +168,37 @@ header {
 }
 .nav-list-item {
 
+}
+
+.nav-link {
+}
+
+#nav-about-me {
+background: #800000; /**rgba(255, 50, 50, 1);**/
+}
+
+#nav-resume {
+background: #008000; /**rgba(0, 255, 0, 1);**/
+}
+
+#nav-projects {
+background: #c46200; /**rgba(0, 0, 255, 1);**/
+}
+
+#nav-blog {
+background: #e6e600; /**rgba(255, 255, 0, 1);**/
+}
+
+#nav-linkedin {
+background: #71C5EF; /**rgba(255, 255, 0, 0.7);**/
+}
+
+#nav-twitter {
+background: #2C77BA; /**rgba(255, 255, 0, 0.7);**/
+}
+
+#nav-github {
+	background: rgba(50, 50, 50, 1);
 }
 
 .header-text {
