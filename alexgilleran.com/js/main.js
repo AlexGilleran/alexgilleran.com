@@ -1,10 +1,11 @@
 require.config({
+	baseUrl: '',
 	paths: {
-		jquery: 'lib/jquery-1.9.0',
-		underscore: 'lib/underscore',
-		backbone: 'lib/backbone',
-		handlebars: 'lib/handlebars-1.0.rc.1',
-		text: 'lib/text',
+		jquery: 'js/lib/jquery-1.9.0',
+		underscore: 'js/lib/underscore',
+		backbone: 'js/lib/backbone',
+		handlebars: 'js/lib/handlebars-1.0.rc.1',
+		text: 'text',
 	},
   	shim: {
 		jquery: {
@@ -25,7 +26,7 @@ require.config({
 
 require([
   // Load our app module and pass it to our definition function
-  'app',
+  'js/app',
 ], function(App){
   // The "app" dependency is passed in as "App"
   App.initialize();

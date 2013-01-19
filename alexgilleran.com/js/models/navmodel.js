@@ -1,6 +1,6 @@
 define([
 	'backbone',
-	'models/navlink'
+	'js/models/navlink'
 ], function(Backbone, NavLink) {
 	var NavModel = Backbone.Collection.extend({
 		model : NavLink,
