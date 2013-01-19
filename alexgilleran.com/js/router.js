@@ -21,9 +21,7 @@ define([
 		
 		Backbone.history.start();
 		
-		$(document).ready(function() {
-			navView = new NavView({el: $('#main-nav')});
-		});
+		navView = new NavView({el: $('#main-nav')});
 	};
 
 	return {

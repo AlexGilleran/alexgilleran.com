@@ -120,7 +120,6 @@ header {
 	display: inline-block;
 	height: 100%;
 	width: 50%;
-	float: left;
     position: relative;
     background: rgba(0, 0, 255, 0.1);
 }
@@ -160,13 +159,25 @@ header {
 }
 
 .oblong {
+    position: relative;
 	border-radius: 10px;
 	border: solid 1px #000000;
-	margin: 20px;
 	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+	margin-bottom: 0;
+}
+
+#nav-list {
+	padding: 0;
+	margin: 0;
+}
+.nav-list-item {
 }
 
 #main-nav .oblong {
+	display: inline-block;
     background: rgba(0, 0, 255, 0.4);
 	width: 50px;
 	height: 50px;
