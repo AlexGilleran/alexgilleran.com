@@ -22,7 +22,12 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'js/models/navmodel', 
 			var navList = $('#nav-list');
 
 			this.model.forEach(function(link) {
-				navList.append(this.linkTemplate(link));
+				navList.append(this.linkTemplate({
+					label : link.get('label'),
+					url : link.get('url'),
+					id : link.get('id'),
+					'icon-url': link.get('icon')
+				}));
 			}, this);
 
 			this.resize(this);

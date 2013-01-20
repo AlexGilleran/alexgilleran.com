@@ -94,7 +94,7 @@ textarea {
    ========================================================================== */
 
 html, body {
-	background-image: url('../img/striped_lens.png');
+	background-image: url('../img/black-stripe.png');
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -126,7 +126,8 @@ header {
 #content .oblong {
     position: absolute;
     left: 0; top: 20px; right: 0; bottom: 22px;
-    background: rgba(0, 0, 255, 0.5);
+    background: rgba(0, 0, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     margin: 0;
 }
 
@@ -135,7 +136,9 @@ header {
 }
 
 .glass:after {
-    border: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 0;
+	border: 2px solid rgba(255, 255, 255, 0.1); 
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-right: 1px solid rgba(255, 255, 255, 0.1);
     -webkit-background-origin: border-box;
     -moz-background-origin: border;
     background-origin: border-box;
@@ -146,11 +149,16 @@ header {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
-	background: -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+	/**background: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
+	**/background: -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
     /**background: -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));*/
+    /**background: linear-gradient(top, rgba(255, 255, 255, .10), rgba(0, 0, 0, .15)), linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .10) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));**/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, .15)), to(rgba(0, 0, 0, .25))), -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
+    /**background: -moz-linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .1) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));**/
     background: linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+	
 }
+
 
 .oblong {
     position: relative;
@@ -162,15 +170,50 @@ header {
 	margin-bottom: 0;
 }
 
+.oblong:after {
+	border-radius: 10px;
+}
+
 #nav-list {
 	padding: 0;
 	margin: 0;
 }
-.nav-list-item {
-
+.nav-link {
 }
 
-.nav-link {
+.nav-link:hover .nav-link-text {
+	color: rgba(255, 255, 255, 1);
+}
+
+.nav-link-text {
+	color: rgba(0, 0, 0, 0);
+	position: relative;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 0.7em;
+}
+
+.nav-link-text-wrapper
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.nav-link-icon {
+}
+
+.nav-link-icon {
+	position: absolute;
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%;
+	height: 40%;
+	margin-top: 30%;
+	margin-right: 30%;
+	
 }
 
 #nav-about-me {
@@ -190,17 +233,40 @@ background: #e6e600; /**rgba(255, 255, 0, 1);**/
 }
 
 #nav-linkedin {
-background: #71C5EF; /**rgba(255, 255, 0, 0.7);**/
+	
+/**background: rgba(113,197,239,1);**/
+	background: rgba(90, 158, 191, 1);
+}
+
+#nav-linkedin:hover {
+	background: rgba(90, 158, 191, 0.6);
 }
 
 #nav-twitter {
-background: #2C77BA; /**rgba(255, 255, 0, 0.7);**/
+	background: rgba(33,88,138, 1); /**rgba(255, 255, 0, 0.7);**/
+}
+
+#nav-twitter:hover {
+	background: rgba(44,119,186, 0.6); /**rgba(255, 255, 0, 0.7);**/
 }
 
 #nav-github {
-	background: rgba(50, 50, 50, 1);
+	background: rgba(30, 30, 30, 1);
 }
 
+#nav-github:hover {
+	background: rgba(30, 30, 30, 0.6); /**rgba(255, 255, 0, 0.7);**/
+}
+
+
+#nav-github .nav-link-icon {
+	width: 45%;
+	margin-left: 27.5%;
+	margin-right: 27.5%;
+	height: 45%;
+	margin-top: 27.5%;
+	margin-right: 27.5%;
+}
 .header-text {
 	transform:rotate(270deg);
 	font-size: 3em;
@@ -211,6 +277,7 @@ background: #2C77BA; /**rgba(255, 255, 0, 0.7);**/
 #header-wrapper {
 	width: 100%;
 }
+
 
 
 

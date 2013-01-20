@@ -14,28 +14,31 @@ define(['backbone', 'js/models/navlink'], function(Backbone, NavLink) {
 
 		linkData : [{
 			id : 'about-me',
-			label : 'About Me',
+			label : 'about me',
 		}, {
 			id : 'resume',
-			label : 'Resume',
+			label : 'resume',
 		}, {
 			id : 'projects',
-			label : 'Projects',
+			label : 'projects',
 		}, {
 			id : 'blog',
-			label : 'Blog',
+			label : 'blog',
 		}, {
 			id : 'linkedin',
-			label : 'LinkedIn',
-			url : 'http://www.linkedin.com/profile/view?id=82976163&trk=hb_tab_pro_top'
+			label : 'linkedin',
+			url : 'http://www.linkedin.com/profile/view?id=82976163&trk=hb_tab_pro_top',
+			icon: 'img/linkedin_logo.svg'
 		}, {
 			id : 'twitter',
-			label : 'Twitter',
-			url : 'http://www.twitter.com/AlexGilleran'
+			label : 'twitter',
+			url : 'http://www.twitter.com/AlexGilleran',
+			icon: 'img/twitter_logo.svg'
 		}, {
 			id : 'github',
-			label : 'Github',
-			url : 'http://github.com/AlexGilleran'
+			label : 'github',
+			url : 'http://github.com/AlexGilleran',
+			icon: 'img/github_logo.svg'
 		}],
 	});
 
