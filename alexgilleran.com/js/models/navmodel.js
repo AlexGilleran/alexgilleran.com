@@ -15,15 +15,17 @@ define(['backbone', 'js/models/navlink'], function(Backbone, NavLink) {
 		linkData : [{
 			id : 'about-me',
 			label : 'about me',
-		}, {
-			id : 'resume',
-			label : 'resume',
+			icon: 'img/about_me_icon.svg'
 		}, {
 			id : 'projects',
 			label : 'projects',
+			icon: 'img/projects_icon.svg'
 		}, {
 			id : 'blog',
 			label : 'blog',
+			icon: 'img/blog_logo.svg'
+		}, {
+			spacer : 'true'
 		}, {
 			id : 'linkedin',
 			label : 'linkedin',

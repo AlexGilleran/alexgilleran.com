@@ -1,8 +1,16 @@
-define(['jquery', 'underscore', 'backbone', 'handlebars', 'js/models/navmodel', 'text!templates/link.html', 'text!templates/nav.html'], function($, _, Backbone, Handlebars, NavModel, LinkTemplate, NavTemplate) {
+define(['jquery',
+ 'underscore', 
+ 'backbone',
+  'handlebars', 
+ 'js/models/navmodel', 
+ 'text!templates/link.html', 
+ 'text!templates/nav.html', 
+ 'text!templates/spacer.html'
+], function($, _, Backbone, Handlebars, NavModel, LinkTemplate, NavTemplate, Spacer) {
 	var NavView = Backbone.View.extend({
 		linkTemplate : Handlebars.compile(LinkTemplate),
-
 		navTemplate : Handlebars.compile(NavTemplate),
+		spacerTemplate : Handlebars.compile(Spacer),
 
 		model : new NavModel(),
 
@@ -22,19 +30,23 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'js/models/navmodel', 
 			var navList = $('#nav-list');
 
 			this.model.forEach(function(link) {
-				navList.append(this.linkTemplate({
-					label : link.get('label'),
-					url : link.get('url'),
-					id : link.get('id'),
-					'icon-url': link.get('icon')
-				}));
+				if (!link.get('spacer')) {
+					navList.append(this.linkTemplate({
+						label : link.get('label'),
+						url : link.get('url'),
+						id : link.get('id'),
+						'icon-url': link.get('icon')
+					}));
+				} else {
+					navList.append(this.spacerTemplate());
+				}
 			}, this);
 
 			this.resize(this);
 		},
 
 		resize : function(context) {
-			var navLink = $('.nav-link');
+			var navLink = $('.nav-resizeable');
 			var navLinkCount = this.model.length;
 			var totalMargin = navLink.outerHeight(true) - navLink.innerHeight();
 
