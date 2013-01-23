@@ -2,8 +2,8 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'js/views/navview'
-],function($, _, Backbone, NavView){
+  'js/views/siteview'
+],function($, _, Backbone, SiteView){
 	var AppRouter = Backbone.Router.extend({
 		routes : {
 			// Default
@@ -19,11 +19,11 @@ define([
 			console.log('No route:', actions);
 		});
 		
-		Backbone.history.start();
-		
 		$(document).ready(function() {
-			navView = new NavView({el: $('#main-nav')});
+			SiteView = new SiteView();
 		});
+		
+		Backbone.history.start();
 	};
 
 	return {

@@ -1,12 +1,4 @@
-define(['jquery',
- 'underscore', 
- 'backbone',
-  'handlebars', 
- 'js/models/navmodel', 
- 'text!templates/link.html', 
- 'text!templates/nav.html', 
- 'text!templates/spacer.html'
-], function($, _, Backbone, Handlebars, NavModel, LinkTemplate, NavTemplate, Spacer) {
+define(['jquery', 'underscore', 'backbone', 'handlebars', 'js/models/navmodel', 'text!templates/link.html', 'text!templates/nav.html', 'text!templates/spacer.html'], function($, _, Backbone, Handlebars, NavModel, LinkTemplate, NavTemplate, Spacer) {
 	var NavView = Backbone.View.extend({
 		linkTemplate : Handlebars.compile(LinkTemplate),
 		navTemplate : Handlebars.compile(NavTemplate),
@@ -19,8 +11,7 @@ define(['jquery',
 		},
 
 		initialize : function() {
-			var resize = _.bind(this.resize, this);
-			$(window).resize(resize);
+			this.fitWindow = _.bind(this.fitWindow, this);
 
 			this.render();
 		},
@@ -35,31 +26,43 @@ define(['jquery',
 						label : link.get('label'),
 						url : link.get('url'),
 						id : link.get('id'),
-						'icon-url': link.get('icon')
+						'icon-url' : link.get('icon')
 					}));
 				} else {
 					navList.append(this.spacerTemplate());
 				}
 			}, this);
 
-			this.resize(this);
+			this.fitWindow(this);
 		},
 
-		resize : function(context) {
+		fitWindow : function() {
 			var navLink = $('.nav-resizeable');
 			var navLinkCount = this.model.length;
-			var totalMargin = navLink.outerHeight(true) - navLink.innerHeight();
+			var totalSpacing = navLink.outerHeight(true) - navLink.innerHeight();
+			var totalBorder = navLink.outerHeight(false) - navLink.innerHeight();
 
-			var mainNavWidth = (this.$el.height() - totalMargin) / navLinkCount;
-			var linkSideLength = mainNavWidth - totalMargin;
+			// Side length not taking into account margins
+			var simpleSideLength = this.$el.height() / navLinkCount;
+			
+			// The height of the top and bottom nav links borders, distributed over all links 
+			var distributedBorders = totalBorder / navLinkCount;
+			
+			// The space in between each link, distributed over all of them
+			var distributedSpacing = (totalSpacing * (navLinkCount - 1) / navLinkCount);
+						
+			var sideLength = (simpleSideLength + distributedBorders) - distributedSpacing;
 
 			// Set the width of the whole <nav>
-			this.$el.width(mainNavWidth);
+			this.$el.width(sideLength);
 
 			// Set the height/width of nav link oblongs
-			navLink.height(linkSideLength).width(linkSideLength);
+			navLink.height(sideLength).width(sideLength);
+
+			// Remove the top margin of the top link
+			navLink.last().css('margin-bottom', 0);
 		}
 	});
 
 	return NavView;
-}); 
+});
