@@ -9,11 +9,7 @@ define([
 ], function($, _, Backbone, Handlebars, Structure, NavLinkView, NavTemplate) {
 	var NavView = Backbone.View.extend({
 		navTemplate : Handlebars.compile(NavTemplate),
-		
-		events : {
-			'click .nav-link': 'linkClicked'
-		},
-
+	
 		initialize : function() {
 			this.fitWindow = _.bind(this.fitWindow, this);
 
@@ -58,16 +54,6 @@ define([
 			// Remove the top margin of the top link
 			navLink.last().css('margin-bottom', 0);
 		},
-		
-		linkClicked : function(event)	{
-			var clickedLink = $(event.target);
-			
-			if (clickedLink.attr('target') != '_blank')	{
-				event.preventDefault();
-				
-				this.trigger('navigate', {pageId: clickedLink.attr('id')});
-			}
-		}
 	});
 
 	return NavView;

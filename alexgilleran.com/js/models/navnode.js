@@ -7,15 +7,6 @@ define(['backbone'], function(Backbone) {
 		defaults : {
 			'open': false
 		},
-		
-		open : function() {
-			if (this.get('contentView')) {
-				this.set('open', true);
-				return true;
-			} else {
-				return false;
-			}
-		},
 
 		target : function() {
 			// If there's no content view for an element, open the url in a new window/tab

@@ -11,7 +11,7 @@ define([
 		initialize : function() {
 			this.setWidth = _.bind(this.setWidth, this);
 			
-			this.listenTo(this.model, 'change:open', this.render);
+			this.listenTo(this.model, 'change:currentNode', this.render);
 			
 			this.render();
 		},
@@ -24,7 +24,7 @@ define([
 			var themeColor = this.model.get('currentNode').get('theme').color;
 			var color = $color(themeColor.r, themeColor.g, themeColor.b, 0.2);
 			
-			this.$el.animate({backgroundColor : color}, 1500);
+			this.$el.animate({backgroundColor : color}, 500);
 		},
 
 		setWidth : function(width) {

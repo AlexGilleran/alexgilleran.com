@@ -23,16 +23,16 @@ define([
 			}, this);
 		},
 		
-		onOpenNodeChanged : function(changedNode, value, options) {
+		onOpenNodeChanged : function(changedNode, opened, options) {
 			// If the node has been opened, we must close all the other nodes
-			if (value == 'open') {
-				nodeList.forEach(function(listNode) {
+			if (opened) {
+				this.nodeList.forEach(function(listNode) {
 					if (listNode != changedNode) {
 						listNode.set('open', false);
 					}
 				})
 				
-				this.set('currentNode', navNode);
+				this.set('currentNode', changedNode);
 			}
 		}
 	});

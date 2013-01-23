@@ -9,6 +9,7 @@ define([
 		cssTemplate : Handlebars.compile(CSSTemplate),
 		
 		tagName: 'li',
+		
 		attributes: {
 			'class': 'nav-list-item'
 		},
@@ -18,9 +19,10 @@ define([
 		},
 		
 		onClick : function(event) {
-			if (model.open()){
-				event.preventDefault();
-			};
+			if (this.model.get('contentView')) {
+				event.preventDefault();	
+				this.model.set('open', true);
+			}
 		},
 
 		initialize : function() {
