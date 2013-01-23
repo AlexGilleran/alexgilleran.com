@@ -139,7 +139,6 @@ header {
 	right: 370px; 
 	bottom: 0;
     display: inline-block;
-	background: rgba(204, 70, 73, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -239,64 +238,6 @@ header {
 	float: left;
 	margin-bottom: 20px;
 }
-
-#nav-about-me {
-	background: rgba(204, 70, 73, 1);
-}
-
-#nav-about-me:hover {
-	background: rgba(204, 70, 73, 0.9);
-}
-
-#nav-projects {
-	background: rgba(204, 183, 39, 1);
-}
-
-#nav-projects:hover {
-	background: rgba(204, 183, 39, 0.9);
-}
-
-#nav-blog {
-	background: rgba(142, 204, 48, 1);
-}
-
-#nav-blog:hover {
-	background: rgba(142, 204, 48, 0.9);
-}
-
-#nav-linkedin {	
-	background: rgba(96,168,204,1);
-}
-
-#nav-linkedin:hover {
-	background: rgba(96,168,204,0.9);
-}
-
-#nav-twitter {
-	background: rgba(49,130,204,1); 
-}
-
-#nav-twitter:hover {
-	background: rgba(49,130,204,0.9); 
-}
-
-#nav-github {
-	background: rgba(46,65,77,1);
-}
-
-#nav-github:hover {
-	background: rgba(46,65,77,0.9);
-}
-
-#nav-github .nav-link-icon {
-	width: 45%;
-	margin-left: 27.5%;
-	margin-right: 27.5%;
-	height: 45%;
-	margin-top: 27.5%;
-	margin-right: 27.5%;
-}
-
 
 
 

@@ -10,10 +10,6 @@ define([
   		el: $('body'),
 		
 		initialize : function() {
-			//this.listenTo(this.navView, 'navigate', this.navigate, this);
-			
-			
-			
 			this.fitWindow = _.bind(this.fitWindow, this);
 			$(window).resize(this.fitWindow);
 			
@@ -22,7 +18,7 @@ define([
 		
 		render: function() {
 			this.navView = new NavView({el: $('#main-nav'), model: this.model});
-			this.contentView = new ContentView({el: $('#content')});
+			this.contentView = new ContentView({el: $('#content'), model: this.model});
 			
 			var AsideView = this.model.get('currentNode').get('aside');
 			if (!AsideView) {
@@ -40,10 +36,6 @@ define([
 			
 			var contentWidth = this.$el.innerWidth() - $('#site-header').width() - this.navView.$el.width() - this.asideView.$el.width() - generalMargin * 2;
 			this.contentView.setWidth(contentWidth);
-		},
-		
-		navigate : function(event) {
-			alert(event.pageId);
 		}
   	});
   	

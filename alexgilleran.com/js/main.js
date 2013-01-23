@@ -5,12 +5,17 @@ require.config({
 		underscore: 'js/lib/underscore',
 		backbone: 'js/lib/backbone',
 		handlebars: 'js/lib/handlebars-1.0.rc.1',
-		text: 'text',
+		'jquery.color': 'js/lib/jquery.color-2.1.1',
+		text: 'text'
 	},
   	shim: {
 		jquery: {
 			exports: '$'
     	},
+    	'jquery.color': {
+            deps: ['jquery'],
+            exports: 'jQuery.Color'
+       	},
 		underscore: {
 			exports: '_'
     	},
