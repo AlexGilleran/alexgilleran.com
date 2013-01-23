@@ -3,12 +3,12 @@ define([
   'underscore', 
   'backbone'     
 ], function($, _, Backbone){
-	var AsideView = Backbone.View.extend({
+	var SocialAsideView = Backbone.View.extend({
 
 		initialize : function() {
 			
 		}
   	});
   	
-  	return AsideView;
+  	return SocialAsideView;
 });

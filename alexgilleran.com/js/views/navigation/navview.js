@@ -1,13 +1,17 @@
-define(['jquery', 'underscore', 'backbone', 'handlebars', 'js/models/navmodel', 'text!templates/link.html', 'text!templates/nav.html', 'text!templates/spacer.html'], function($, _, Backbone, Handlebars, NavModel, LinkTemplate, NavTemplate, Spacer) {
+define([
+	'jquery', 
+	'underscore', 
+	'backbone', 
+	'handlebars', 
+	'js/models/structure', 
+	'js/views/navigation/navlinkview', 
+	'text!templates/nav.html'
+], function($, _, Backbone, Handlebars, Structure, NavLinkView, NavTemplate) {
 	var NavView = Backbone.View.extend({
-		linkTemplate : Handlebars.compile(LinkTemplate),
 		navTemplate : Handlebars.compile(NavTemplate),
-		spacerTemplate : Handlebars.compile(Spacer),
-
-		model : new NavModel(),
-
+		
 		events : {
-
+			'click .nav-link': 'linkClicked'
 		},
 
 		initialize : function() {
@@ -20,17 +24,9 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'js/models/navmodel', 
 			this.$el.html(this.navTemplate());
 			var navList = $('#nav-list');
 
-			this.model.forEach(function(link) {
-				if (!link.get('spacer')) {
-					navList.append(this.linkTemplate({
-						label : link.get('label'),
-						url : link.get('url'),
-						id : link.get('id'),
-						'icon-url' : link.get('icon')
-					}));
-				} else {
-					navList.append(this.spacerTemplate());
-				}
+			this.model.nodeList.forEach(function(navnode) {
+				var navLinkView = new NavLinkView({model: navnode});
+				navList.append(navLinkView.$el);
 			}, this);
 
 			this.fitWindow(this);
@@ -38,7 +34,7 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'js/models/navmodel', 
 
 		fitWindow : function() {
 			var navLink = $('.nav-resizeable');
-			var navLinkCount = this.model.length;
+			var navLinkCount = this.model.nodeList.length;
 			var totalSpacing = navLink.outerHeight(true) - navLink.innerHeight();
 			var totalBorder = navLink.outerHeight(false) - navLink.innerHeight();
 
@@ -61,6 +57,16 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'js/models/navmodel', 
 
 			// Remove the top margin of the top link
 			navLink.last().css('margin-bottom', 0);
+		},
+		
+		linkClicked : function(event)	{
+			var clickedLink = $(event.target);
+			
+			if (clickedLink.attr('target') != '_blank')	{
+				event.preventDefault();
+				
+				this.trigger('navigate', {pageId: clickedLink.attr('id')});
+			}
 		}
 	});
 

@@ -1,0 +1,7 @@
+#{{id}}	{
+	background: rgb({{r}}, {{g}}, {{b}});
+}
+
+#{{id}}:hover {
+	background: rgba({{r}}, {{g}}, {{b}}, 0.9);
+}

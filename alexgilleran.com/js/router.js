@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'js/views/siteview'
-],function($, _, Backbone, SiteView){
+  'js/views/siteview',
+  'js/models/structure'
+],function($, _, Backbone, SiteView, Structure){
 	var AppRouter = Backbone.Router.extend({
 		routes : {
 			// Default
@@ -20,7 +21,9 @@ define([
 		});
 		
 		$(document).ready(function() {
-			SiteView = new SiteView();
+			structure = new Structure();
+			structure.fetch();
+			SiteView = new SiteView({model : structure});
 		});
 		
 		Backbone.history.start();
