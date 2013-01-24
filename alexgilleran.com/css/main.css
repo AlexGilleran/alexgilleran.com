@@ -142,6 +142,16 @@ header {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.fade-wrapper {
+	display: none;
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+}
+
+#content-header-text {
+	color: #FFF;
+}
+
 #content-aside {
     border: 1px solid rgba(255, 255, 255, 0.2);
 	background: rgba(100, 100, 100, 0.2);
