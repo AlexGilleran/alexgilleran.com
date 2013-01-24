@@ -20,14 +20,14 @@ define([
 		},
 		
 		initialize : function() {
-			this.render();
-			
 			if (this.model.get('theme')) {
 				this.openColor = $color(this.model.get('theme').color.r, this.model.get('theme').color.g, this.model.get('theme').color.b);
 				this.invisible = $color(255, 255, 255, 0);
 			}
 		
-			this.listenTo(this.model, 'change:open', this.onOpenChange);
+			this.listenTo(this.model, 'change:open', this.setOpenStyling);
+			
+			this.render();
 		},
 
 		render : function() {
@@ -55,6 +55,8 @@ define([
 			} else {
 				this.$el.html(this.spacerTemplate());
 			}
+			
+			this.setOpenStyling();
 		},
 		
 		onClick : function(event) {
@@ -66,7 +68,7 @@ define([
 			}
 		},
 
-		onOpenChange : function(event) {
+		setOpenStyling : function() {
 			if(this.model.get('open')) {
 				this.$el.find('.nav-link').animate({color : this.openColor}, 500);
 			} else {
