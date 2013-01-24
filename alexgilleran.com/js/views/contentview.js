@@ -20,19 +20,20 @@ define([
 			var newContent = this.contentTemplate({'title': this.model.get('currentNode').get('label')});
 			this.$el.append(newContent);
 			var fadeWrappers = this.$el.find('.fade-wrapper');
-			var newFadeWrapper = fadeWrappers.last();
 			
 			this.changeBackground();
 			
+			var newFadeWrapper = fadeWrappers.last();
 			newFadeWrapper.fadeIn(500);
 			
 			if (fadeWrappers.length > 1) {
-				var oldFadeWrapper = fadeWrappers.first();
+				var oldFadeWrapper = newFadeWrapper.prev();
 				
 				oldFadeWrapper.fadeOut(500, function() {
 					oldFadeWrapper.remove();
 				});
 			}
+			
 		},
 		
 		changeBackground : function() {
