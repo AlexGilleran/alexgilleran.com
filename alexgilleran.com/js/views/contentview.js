@@ -2,11 +2,9 @@ define([
   'jquery',     
   'underscore', 
   'backbone',
-  'jquery.color',
-  'text!templates/content-background.txt'     
-], function($, _, Backbone, $color, RGBATemplate){
+  'jquery.color',    
+], function($, _, Backbone, $color){
 	var ContentView = Backbone.View.extend({
-		rgbaTemplate: Handlebars.compile(RGBATemplate),
 		
 		initialize : function() {
 			this.setWidth = _.bind(this.setWidth, this);

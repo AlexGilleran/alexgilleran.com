@@ -196,10 +196,19 @@ header {
 	margin: 0;
 }
 .nav-link {
-
+	box-shadow: 0 0 10px 5px;
+	color:  rgba(255, 255, 255, 0);
+	display: block;	
+}
+	
+.nav-link:focus {
+    -moz-outline-style: none;     
+    outline-style: none;
+    outline-width: 0px;
+    outline-color: -moz-use-text-color;
 }
 
-.nav-link:hover .nav-link-text {
+.nav-link:hover .nav-link-text, .nav-link:focus .nav-link-text  {
 	color: rgba(255, 255, 255, 1);
 }
 
