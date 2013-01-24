@@ -17,7 +17,13 @@ define([
 		},
 		
 		render : function() {
-			var newContent = this.contentTemplate({'title': this.model.get('currentNode').get('label')});
+			var newContent = this.contentTemplate({
+				'title': this.model.get('currentNode').get('label'),
+				'r': this.model.get('currentNode').get('theme').color.r,
+				'g': this.model.get('currentNode').get('theme').color.g,
+				'b': this.model.get('currentNode').get('theme').color.b
+			});
+			
 			this.$el.append(newContent);
 			var fadeWrappers = this.$el.find('.fade-wrapper');
 			

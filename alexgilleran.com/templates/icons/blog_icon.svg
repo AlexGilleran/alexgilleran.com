@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="50" width="50" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
-	<metadata>
-		<rdf:RDF>
-			<cc:Work rdf:about="">
-				<dc:format>image/svg+xml</dc:format>
-				<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-				<dc:title/>
-			</cc:Work>
-		</rdf:RDF>
-	</metadata>
+<svg 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"	xmlns="http://www.w3.org/2000/svg" height="50" width="50"	version="1.1" 	xmlns:cc="http://creativecommons.org/ns#" 	xmlns:dc="http://purl.org/dc/elements/1.1/"	width: "50"	height: "50"	preserveAspectRatio="xMinYMin meet" 	viewBox="0 0 50 50"   	class="{{class}}">
 	<g transform="translate(-72.364368,-823.07379)">
 		<g stroke-miterlimit="4" stroke="#FFF" transform="matrix(0.06650153,0,0,0.06650153,71.052027,815.01306)">
 			<g transform="translate(11.096604,-11.456237)">

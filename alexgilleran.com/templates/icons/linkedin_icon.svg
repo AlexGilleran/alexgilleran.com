@@ -1,0 +1,31 @@
+<svg
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:cc="http://creativecommons.org/ns#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	width: "50"
+	height: "50"
+	preserveAspectRatio="xMinYMin meet"
+	viewBox="0 0 50 50"
+	version="1.0"
+	id="svg2"
+	inkscape:version="0.48.4 r9939"
+	sodipodi:docname="linkedin_logo.svg"
+   class="{{class}}">
+
+	<g
+	id="g3053"
+	transform="matrix(0.35480877,0,0,0.35480877,2.095027e-7,1.1030971)">
+		<path
+		style="fill:#ffffff"
+		id="path15"
+		d="m 31.99,134.703 0,-90.884 -30.208,0 0,90.884 30.208,0 z m -15.1,-103.3 c 10.534,0 17.091,-6.9789 17.091,-15.7 C 33.78468,6.7851 27.4244,0 17.09,0 6.757,0 0,6.7852 0,15.703 c 0,8.7216 6.5553,15.7 16.693,15.7 h 0.19633 z" />
+		<path
+		style="fill:#ffffff"
+		id="path17"
+		d="m 48.71,134.703 30.208,0 0,-50.754 c 0,-2.7163 0.19632,-5.4298 0.99398,-7.3715 2.1838,-5.4271 7.1542,-11.048 15.499,-11.048 10.931,0 15.304,8.3343 15.304,20.552 v 48.621 h 30.206 v -52.112 c 0,-27.916 -14.903,-40.905 -34.778,-40.905 -16.296,0 -23.451,9.1089 -27.426,15.313 h 0.2017 v -13.181 h -30.208 c 0.39641,8.528 0,90.884 0,90.884 z" />
+	</g>
+</svg>

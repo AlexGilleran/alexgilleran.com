@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -7,11 +5,14 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   width="50"
-   height="50"
+   width: "50"
+   height: "50"
+   preserveAspectRatio="xMinYMin meet"
+   viewBox="0 0 50 50"
    id="svg2"
    version="1.1"
-   sodipodi:docname="about_me_icon.svg">
+   sodipodi:docname="about_me_icon.svg"
+   class="{{class}}">
   <g
      id="layer1"
      transform="translate(0,-1002.3622)">

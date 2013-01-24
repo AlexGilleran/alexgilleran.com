@@ -34,9 +34,17 @@ define([
 			var model = this.model;
 			
 			if (model.get('id')) {
+				var svgTemplate = model.get('theme').iconTemplate;
+				
+				var iconSvg;
+				if (svgTemplate) {
+					iconSvg = svgTemplate({r:255,b:255,g:255,a:0.8,'class':'nav-link-icon'});
+				}
+				
 				var linkHtml = this.linkTemplate({
 					'label' : model.get('label'),
 					'url' : model.get('url'),
+					'svg': iconSvg,
 					'id' : model.get('id'),
 					'icon-url' : model.get('theme').icon,
 					'target' : model.target()

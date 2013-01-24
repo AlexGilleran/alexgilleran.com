@@ -1,8 +1,14 @@
 define([
   'js/views/about-me/aboutmeview',
   'js/views/blog/blogview',
-  'js/views/project/projectlistview'
-], function(AboutMeView, BlogView, ProjectListView){
+  'js/views/project/projectlistview',
+  'text!templates/icons/about_me_icon.svg',
+  'text!templates/icons/projects_icon.svg',
+  'text!templates/icons/blog_icon.svg',
+  'text!templates/icons/linkedin_icon.svg',
+  'text!templates/icons/twitter_icon.svg',
+  'text!templates/icons/github_icon.svg'
+], function(AboutMeView, BlogView, ProjectListView, AboutMeIconTemplate, ProjectsIconTemplate, BlogIconTemplate, LinkedInIconTemplate, TwitterIconTemplate, GithubIconTemplate){
 	var structureData = [{
 			id : 'nav-about-me',
 			label : 'about me',
@@ -10,8 +16,7 @@ define([
 			contentView: AboutMeView,
 			open: true,
 			theme: {
-				icon: 'img/about_me_icon.svg',
-				color: {
+				iconTemplate: Handlebars.compile(AboutMeIconTemplate),				color: {
 					r: 204,
 					g: 70,
 					b: 73
@@ -23,7 +28,7 @@ define([
 			url: 'projects',
 			contentView: ProjectListView,
 			theme: {
-				icon: 'img/projects_icon.svg',
+				iconTemplate: Handlebars.compile(ProjectsIconTemplate),
 				color: {
 					r: 204,
 					g: 183,
@@ -36,7 +41,7 @@ define([
 			url : 'blog',
 			contentView: BlogView,
 			theme: {
-				icon: 'img/blog_icon.svg',
+				iconTemplate: Handlebars.compile(BlogIconTemplate),
 				color: {
 					r: 142,
 					g: 204,
@@ -50,7 +55,7 @@ define([
 			label : 'linkedin',
 			url : 'http://www.linkedin.com/profile/view?id=82976163',
 			theme: {
-				icon: 'img/linkedin_icon.svg',
+				iconTemplate: Handlebars.compile(LinkedInIconTemplate),
 				color: {
 					r: 96,
 					g: 168,
@@ -62,7 +67,7 @@ define([
 			label : 'twitter',
 			url : 'http://www.twitter.com/AlexGilleran',
 			theme: {
-				icon: 'img/twitter_icon.svg',
+				iconTemplate: Handlebars.compile(TwitterIconTemplate),
 				color: {
 					r: 49,
 					g: 130,
@@ -74,7 +79,7 @@ define([
 			label : 'github',
 			url : 'http://github.com/AlexGilleran',
 			theme: {
-				icon: 'img/github_icon.svg',
+				iconTemplate: Handlebars.compile(GithubIconTemplate),
 				color: {
 					r: 46,
 					g: 65,

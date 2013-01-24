@@ -103,7 +103,7 @@ body {
     overflow:hidden;
 }
 
-header {
+#site-header {
 	display: inline-block;
 	float: left;
 	height: 100%;
@@ -140,7 +140,9 @@ header {
 	bottom: 0;
     display: inline-block;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
 }
+
 
 .fade-wrapper {
 	display: none;
@@ -148,8 +150,23 @@ header {
 	top: 0; bottom: 0; left: 0; right: 0;
 }
 
+#content-header {
+	bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
 #content-header-text {
-	color: #FFF;
+	font-size: 7em;
+    margin: 5px 5% 0 0;
+    text-align: right;
+}
+
+.content-text {
+	margin: 20px 20px 20px 20px;
+	font-size: 0.9em;
+	color: rgba(225, 225, 225, 0.9);
 }
 
 #content-aside {
@@ -237,9 +254,6 @@ header {
 	left: 0;
 	right: 0;
 	text-align: center;
-}
-
-.nav-link-icon {
 }
 
 .nav-link-icon {
