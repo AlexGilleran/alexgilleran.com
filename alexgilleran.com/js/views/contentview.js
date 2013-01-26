@@ -2,9 +2,10 @@ define([
   'jquery',     
   'underscore', 
   'backbone',
+  'handlebars',
   'jquery.color',
   'text!templates/contentframe.html'
-], function($, _, Backbone, $color, ContentTemplate){
+], function($, _, Backbone, Handelbars, $color, ContentTemplate){
 	var ContentView = Backbone.View.extend({
 		contentTemplate : Handlebars.compile(ContentTemplate),
 		
@@ -17,11 +18,20 @@ define([
 		},
 		
 		render : function() {
+			var svgIcon = this.model.get('currentNode').get('theme').iconTemplate({
+				'class': 'content-icon-background',
+				'r': this.model.get('currentNode').get('theme').color.r,
+				'g': this.model.get('currentNode').get('theme').color.g,
+				'b': this.model.get('currentNode').get('theme').color.b,
+				'a': '0.2',
+			});
+			
 			var newContent = this.contentTemplate({
 				'title': this.model.get('currentNode').get('label'),
 				'r': this.model.get('currentNode').get('theme').color.r,
 				'g': this.model.get('currentNode').get('theme').color.g,
-				'b': this.model.get('currentNode').get('theme').color.b
+				'b': this.model.get('currentNode').get('theme').color.b,
+				'background-icon': svgIcon 
 			});
 			
 			this.$el.append(newContent);

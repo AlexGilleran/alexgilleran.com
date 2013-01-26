@@ -1,4 +1,5 @@
 <svg
+   class="{{class}}"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -11,19 +12,18 @@
    viewBox="0 0 50 50"
    id="svg2"
    version="1.1"
-   sodipodi:docname="about_me_icon.svg"
-   class="{{class}}">
+   sodipodi:docname="about_me_icon.svg">
   <g
      id="layer1"
      transform="translate(0,-1002.3622)">
     <path
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       style="fill:rgb({{r}}, {{g}}, {{b}});fill-opacity:{{a}};stroke:none"
        d="m 0,1052.3622 c 0,0 -0.11887501,-23.8997 25,-23.8393 25.118875,0.06 25,23.8393 25,23.8393 z"
        id="path2989"
        sodipodi:nodetypes="czcc" />
     <path
        sodipodi:type="arc"
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       style="fill:rgb({{r}}, {{g}}, {{b}});fill-opacity:{{a}};stroke:none"
        id="path2999"
        sodipodi:cx="23.392857"
        sodipodi:cy="8.75"

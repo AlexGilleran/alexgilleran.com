@@ -1,9 +1,12 @@
 define([
+	'jquery',
+	'backbone',
+	'handlebars',
 	'jquery.color',
 	'text!templates/link.html', 
 	'text!templates/spacer.html',
 	'text!templates/nav-link.css'
-], function($color, LinkTemplate, SpacerTemplate, CSSTemplate){
+], function($, Backbone, Handlebars, $color, LinkTemplate, SpacerTemplate, CSSTemplate){
 	var NavLinkView = Backbone.View.extend({
 		linkTemplate : Handlebars.compile(LinkTemplate),
 		spacerTemplate : Handlebars.compile(SpacerTemplate),
@@ -38,7 +41,7 @@ define([
 				
 				var iconSvg;
 				if (svgTemplate) {
-					iconSvg = svgTemplate({r:255,b:255,g:255,a:0.8,'class':'nav-link-icon'});
+					iconSvg = svgTemplate({r:255,b:255,g:255,a:1,'class':'nav-link-icon'});
 				}
 				
 				var linkHtml = this.linkTemplate({

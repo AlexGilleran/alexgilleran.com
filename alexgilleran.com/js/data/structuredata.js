@@ -1,14 +1,15 @@
 define([
-  'js/views/about-me/aboutmeview',
-  'js/views/blog/blogview',
-  'js/views/project/projectlistview',
-  'text!templates/icons/about_me_icon.svg',
-  'text!templates/icons/projects_icon.svg',
-  'text!templates/icons/blog_icon.svg',
-  'text!templates/icons/linkedin_icon.svg',
-  'text!templates/icons/twitter_icon.svg',
-  'text!templates/icons/github_icon.svg'
-], function(AboutMeView, BlogView, ProjectListView, AboutMeIconTemplate, ProjectsIconTemplate, BlogIconTemplate, LinkedInIconTemplate, TwitterIconTemplate, GithubIconTemplate){
+	'handlebars',
+	'js/views/about-me/aboutmeview',
+	'js/views/blog/blogview',
+	'js/views/project/projectlistview',
+	'text!templates/icons/about_me_icon.svg',
+	'text!templates/icons/projects_icon.svg',
+	'text!templates/icons/blog_icon.svg',
+	'text!templates/icons/linkedin_icon.svg',
+	'text!templates/icons/twitter_icon.svg',
+	'text!templates/icons/github_icon.svg'
+], function(Handlebars, AboutMeView, BlogView, ProjectListView, AboutMeIconTemplate, ProjectsIconTemplate, BlogIconTemplate, LinkedInIconTemplate, TwitterIconTemplate, GithubIconTemplate){
 	var structureData = [{
 			id : 'nav-about-me',
 			label : 'about me',

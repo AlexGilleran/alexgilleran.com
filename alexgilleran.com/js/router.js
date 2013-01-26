@@ -9,22 +9,21 @@ define([
 		routes : {
 			// Default
 			'*actions' : 'defaultAction'
+		},
+		
+		defaultAction : function() {
+		
+			$(document).ready(function() {
+				structure = new Structure();
+				structure.fetch();
+				SiteView = new SiteView({model : structure});
+			});
+			
 		}
 	});
 
 	var initialize = function() {
 		var app_router = new AppRouter;
-		
-		app_router.on('defaultAction', function(actions) {
-			// We have no matching route, lets just log what the URL was
-			console.log('No route:', actions);
-		});
-		
-		$(document).ready(function() {
-			structure = new Structure();
-			structure.fetch();
-			SiteView = new SiteView({model : structure});
-		});
 		
 		Backbone.history.start();
 	};
