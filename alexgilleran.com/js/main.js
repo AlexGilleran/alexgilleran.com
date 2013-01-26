@@ -6,6 +6,7 @@ require.config({
 		backbone: 'js/lib/backbone',
 		handlebars: 'js/lib/handlebars-1.0.rc.1',
 		'jquery.color': 'js/lib/jquery.color-2.1.1',
+		'jquery.tinyscrollbar': 'js/lib/jquery.tinyscrollbar',
 		text: 'text'
 	},
   	shim: {
@@ -16,6 +17,7 @@ require.config({
             deps: ['jquery'],
             exports: 'jQuery.Color'
        	},
+    	'jquery.tinyscrollbar': ['jquery'],
 		underscore: {
 			exports: '_'
     	},

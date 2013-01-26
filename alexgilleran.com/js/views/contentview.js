@@ -4,13 +4,14 @@ define([
   'backbone',
   'handlebars',
   'jquery.color',
+  'jquery.tinyscrollbar',
   'text!templates/contentframe.html'
-], function($, _, Backbone, Handelbars, $color, ContentTemplate){
+], function($, _, Backbone, Handelbars, $color, $tinyscrollbar, ContentTemplate){
 	var ContentView = Backbone.View.extend({
 		contentTemplate : Handlebars.compile(ContentTemplate),
 		
 		initialize : function() {
-			this.setWidth = _.bind(this.setWidth, this);
+			this.fitWindow = _.bind(this.fitWindow, this);
 			
 			this.listenTo(this.model, 'change:currentNode', this.render);
 			
@@ -34,13 +35,21 @@ define([
 				'background-icon': svgIcon 
 			});
 			
-			this.$el.append(newContent);
-			var fadeWrappers = this.$el.find('.fade-wrapper');
+			this.$el.html(newContent);
 			
+			var scrollDiv = this.$el.find('.content-text');
+			scrollDiv.tinyscrollbar({
+				axis: 'y'
+			});
+			
+			var fadeWrappers = this.$el.find('.fade-wrapper');
 			this.changeBackground();
 			
 			var newFadeWrapper = fadeWrappers.last();
-			newFadeWrapper.fadeIn(500);
+			newFadeWrapper.fadeIn(500, function() {
+				scrollDiv.tinyscrollbar_update();
+			});
+			scrollDiv.tinyscrollbar_update();
 			
 			if (fadeWrappers.length > 1) {
 				var oldFadeWrapper = newFadeWrapper.prev();
@@ -59,8 +68,9 @@ define([
 			this.$el.animate({backgroundColor : color}, 500);
 		},
 
-		setWidth : function(width) {
+		fitWindow : function(width) {
 			this.$el.width(width);
+			this.$el.find('.content-text').tinyscrollbar_update();
 		}
   	});
   	

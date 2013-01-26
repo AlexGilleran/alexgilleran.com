@@ -152,23 +152,84 @@ body {
 #content-header {
 	margin: 0;
 	padding: 0;
+	height: 15%;
 }
 
 #content-header-text {
-	margin: 15px 20px 0 20px;
-	padding: 0px;
+	margin: 0;
+	padding: 20px;
 	font-size: 3em;
     text-align: left;
 }
 
 .content-icon-background {
     position: absolute;
-    right: 5%;
-	bottom: 5%;
+    right: 20px;
+	bottom: 20px;
+	height: 300px;
+	width: 300px;
     z-index: -1;
-    width: 40%;
 }
+
 .content-text {
+	position: absolute;
+	top: 6em; bottom: 5px; left: 0; right: 0;
+}
+.content-text .viewport {
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+	overflow: hidden;
+}
+.content-text .overview {
+	list-style: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.content-text .thumb .end, .content-text .thumb {
+	background-color: #003D5D;
+}
+.content-text .scrollbar {
+	position: relative;
+	float: right;
+	width: 11px;
+	border-radius:10px;
+	height: 100%;
+	z-index: 2;
+}
+.content-text .track {
+	height: 100%;
+	width: 10px;
+	position: relative;
+	padding: 0 1px;
+}
+.content-text .thumb {
+	height: 20px;
+	cursor: pointer;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 10px;
+	border-radius:10px;
+}
+.content-text .thumb .end {
+	overflow: hidden;
+	height: 5px;
+	width: 10px;
+	opacity: 0;
+}
+.content-text .disable {
+	display: none;
+}
+.noSelect {
+	user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+.content-paragraph {
 	margin: 0 20px 20px 20px;
 	font-size: 0.9em;
 	color: rgba(225, 225, 225, 0.9);
@@ -188,10 +249,10 @@ body {
 	
 }
 
-.glass:after {
+.glass::after {
 	border: 2px solid rgba(255, 255, 255, 0.1); 
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	border-right: 1px solid rgba(255, 255, 255, 0.1);
+	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+	border-right: 2px solid rgba(255, 255, 255, 0.1);
     -webkit-background-origin: border-box;
     -moz-background-origin: border;
     background-origin: border-box;
@@ -202,12 +263,12 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
+	background: rgba(255, 255, 255, 0);
 	background: -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
-   /**background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, .15)), to(rgba(0, 0, 0, .25))), -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));**/
   	background: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
-    
-    background: linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
-	
+	background: -o-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+	background: -ms-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+  	background: linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
 }
 
 
@@ -228,7 +289,7 @@ body {
 	margin: 0;
 }
 .nav-link {
-	box-shadow: 0 0 10px 5px;
+	box-shadow: 0 0 7px 7px;
 	color:  rgba(0, 0, 0, 0);
 	display: block;	
 }

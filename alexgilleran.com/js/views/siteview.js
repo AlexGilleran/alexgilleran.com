@@ -35,7 +35,7 @@ define([
 			this.navView.fitWindow();
 			
 			var contentWidth = this.$el.innerWidth() - $('#site-header').width() - this.navView.$el.width() - this.asideView.$el.width() - generalMargin * 2;
-			this.contentView.setWidth(contentWidth);
+			this.contentView.fitWindow(contentWidth);
 		}
   	});
   	
