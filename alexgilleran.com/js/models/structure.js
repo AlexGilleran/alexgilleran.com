@@ -1,7 +1,7 @@
 define([
  'backbone',
  'js/models/navnode',
- 'js/data/structuredata'
+ 'js/structure'
  ], function(Backbone, NavNode, structureData) {
 	var Structure = Backbone.Model.extend({
 		nodeList: [],

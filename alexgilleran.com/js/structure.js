@@ -1,20 +1,22 @@
 define([
 	'handlebars',
-	'js/views/about-me/aboutmeview',
+	'js/views/content/blurbview',
 	'js/views/blog/blogview',
 	'js/views/project/projectlistview',
+	'js/models/blurb',
 	'text!templates/icons/about_me_icon.svg',
 	'text!templates/icons/projects_icon.svg',
 	'text!templates/icons/blog_icon.svg',
 	'text!templates/icons/linkedin_icon.svg',
 	'text!templates/icons/twitter_icon.svg',
 	'text!templates/icons/github_icon.svg'
-], function(Handlebars, AboutMeView, BlogView, ProjectListView, AboutMeIconTemplate, ProjectsIconTemplate, BlogIconTemplate, LinkedInIconTemplate, TwitterIconTemplate, GithubIconTemplate){
+], function(Handlebars, BlurbView, BlogView, ProjectListView, Blurb, AboutMeIconTemplate, ProjectsIconTemplate, BlogIconTemplate, LinkedInIconTemplate, TwitterIconTemplate, GithubIconTemplate){
 	var structureData = [{
 			id : 'nav-about-me',
 			label : 'about me',
 			url: 'about_me',
-			contentView: AboutMeView,
+			contentView: BlurbView,
+			model: new Blurb({'urlRoot' : 'data/aboutme.md'}),
 			open: true,
 			theme: {
 				iconTemplate: Handlebars.compile(AboutMeIconTemplate),				color: {

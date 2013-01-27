@@ -19,12 +19,14 @@ define([
 		},
 		
 		render : function() {
+			this.$el.find('.fade-wrapper').stop(true, true);
+			
 			var svgIcon = this.model.get('currentNode').get('theme').iconTemplate({
 				'class': 'content-icon-background',
 				'r': this.model.get('currentNode').get('theme').color.r,
 				'g': this.model.get('currentNode').get('theme').color.g,
 				'b': this.model.get('currentNode').get('theme').color.b,
-				'a': '0.2',
+				'a': '0.1',
 			});
 			
 			var newContent = this.contentTemplate({
@@ -36,10 +38,15 @@ define([
 			});
 			
 			this.$el.html(newContent);
-			
 			var scrollDiv = this.$el.find('.content-text');
 			scrollDiv.tinyscrollbar({
 				axis: 'y'
+			});
+			
+			var View = this.model.get('currentNode').get('contentView');
+			this.nodeView = new View({
+				el: this.$el.find('.overview'), 
+				model: this.model.get('currentNode').get('model')
 			});
 			
 			var fadeWrappers = this.$el.find('.fade-wrapper');
@@ -49,11 +56,9 @@ define([
 			newFadeWrapper.fadeIn(500, function() {
 				scrollDiv.tinyscrollbar_update();
 			});
-			scrollDiv.tinyscrollbar_update();
 			
 			if (fadeWrappers.length > 1) {
 				var oldFadeWrapper = newFadeWrapper.prev();
-				
 				oldFadeWrapper.fadeOut(500, function() {
 					oldFadeWrapper.remove();
 				});

@@ -2,7 +2,7 @@ define([
   'jquery',     
   'underscore', 
   'backbone',
-  'js/views/contentview',
+  'js/views/content/contentview',
   'js/views/navigation/navview',   
   'js/views/socialasideview',   
 ], function($, _, Backbone, ContentView, NavView, SocialAsideView){

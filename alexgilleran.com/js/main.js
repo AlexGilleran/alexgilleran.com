@@ -5,6 +5,7 @@ require.config({
 		underscore: 'js/lib/underscore',
 		backbone: 'js/lib/backbone',
 		handlebars: 'js/lib/handlebars-1.0.rc.1',
+		showdown: 'js/lib/showdown',
 		'jquery.color': 'js/lib/jquery.color-2.1.1',
 		'jquery.tinyscrollbar': 'js/lib/jquery.tinyscrollbar',
 		text: 'text'

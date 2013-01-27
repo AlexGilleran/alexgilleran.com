@@ -173,18 +173,12 @@ body {
 
 .content-text {
 	position: absolute;
-	top: 6em; bottom: 5px; left: 0; right: 0;
+	top: 6em; bottom: 0; left: 0; right: 0;
 }
 .content-text .viewport {
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
 	overflow: hidden;
-}
-.content-text .overview {
-	list-style: none;
-	position: absolute;
-	left: 0;
-	top: 0;
 }
 .content-text .thumb .end, .content-text .thumb {
 	background-color: #003D5D;
@@ -192,7 +186,7 @@ body {
 .content-text .scrollbar {
 	position: relative;
 	float: right;
-	width: 11px;
+	width: 10px;
 	border-radius:10px;
 	height: 100%;
 	z-index: 2;
@@ -200,39 +194,52 @@ body {
 .content-text .track {
 	height: 100%;
 	width: 10px;
-	position: relative;
-	padding: 0 1px;
+	position: absolute;
+	padding: 0;
 }
 .content-text .thumb {
-	height: 20px;
+	height: 0px;
 	cursor: pointer;
 	overflow: hidden;
 	position: absolute;
 	top: 0;
 	width: 10px;
-	border-radius:10px;
+	background: none;
 }
 .content-text .thumb .end {
 	overflow: hidden;
-	height: 5px;
-	width: 10px;
-	opacity: 0;
+	position: absolute;
+	top: 0; right: 0; left: 0; bottom: 5px;
+	border-radius: 10px;
 }
 .content-text .disable {
 	display: none;
 }
+
+.overview {
+	list-style: none;
+	position: absolute;
+	left: 20px;
+	right: 20px;
+	top: 0;
+	color: #FFFFFF;
+	font-size: 0.9em;
+}
+
+.overview p {
+	margin-top: 0;
+}
+
+.overview h2 {
+	margin-bottom: 0.2em;
+}
+
 .noSelect {
 	user-select: none;
 	-o-user-select: none;
 	-moz-user-select: none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
-}
-
-.content-paragraph {
-	margin: 0 20px 20px 20px;
-	font-size: 0.9em;
-	color: rgba(225, 225, 225, 0.9);
 }
 
 #content-aside {
@@ -249,7 +256,7 @@ body {
 	
 }
 
-.glass::after {
+.glass:after {
 	border: 2px solid rgba(255, 255, 255, 0.1); 
 	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 	border-right: 2px solid rgba(255, 255, 255, 0.1);
