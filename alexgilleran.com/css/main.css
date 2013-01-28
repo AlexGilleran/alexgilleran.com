@@ -180,9 +180,7 @@ body {
 	top: 0; bottom: 0; left: 0; right: 0;
 	overflow: hidden;
 }
-.content-text .thumb .end, .content-text .thumb {
-	background-color: #003D5D;
-}
+
 .content-text .scrollbar {
 	position: relative;
 	float: right;
@@ -211,6 +209,7 @@ body {
 	position: absolute;
 	top: 0; right: 0; left: 0; bottom: 5px;
 	border-radius: 10px;
+	opacity: 0.6;
 }
 .content-text .disable {
 	display: none;
@@ -232,6 +231,21 @@ body {
 
 .overview h2 {
 	margin-bottom: 0.2em;
+}
+
+.overview img {
+	width: 80%;
+	margin-top: 0.9em;
+	margin-left: 10%;
+	margin-right: 10%;
+	border-radius: 10px;
+	opacity: 0.8;
+    border: 1px solid rgba(100, 100, 100, 0.8);
+}
+
+.overview a {
+	text-decoration: none;
+	font-weight: bold;
 }
 
 .noSelect {

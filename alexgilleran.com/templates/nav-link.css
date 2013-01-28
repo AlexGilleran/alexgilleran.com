@@ -5,3 +5,11 @@
 #{{id}}:focus, #{{id}}:hover {
 	background: rgba({{r}}, {{g}}, {{b}}, 0.6);
 }
+
+.{{id}}-color, .{{id}} a {
+	color: rgb({{r}}, {{g}}, {{b}});
+}
+
+.{{id}}-bgcolor {
+	background-color: rgb({{r}}, {{g}}, {{b}});
+}

@@ -31,9 +31,7 @@ define([
 			
 			var newContent = this.contentTemplate({
 				'title': this.model.get('currentNode').get('label'),
-				'r': this.model.get('currentNode').get('theme').color.r,
-				'g': this.model.get('currentNode').get('theme').color.g,
-				'b': this.model.get('currentNode').get('theme').color.b,
+				'node-class': this.model.get('currentNode').get('id'),
 				'background-icon': svgIcon 
 			});
 			
