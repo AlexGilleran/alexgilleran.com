@@ -2,10 +2,19 @@ define(['backbone'], function(Backbone) {
 	var NavNode = Backbone.Model.extend({
 		initialize : function() {
 			_.bindAll(this)
+			
+			if (!this.isSpacer) {
+				var navNode = this;
+				require(['text!' + navNode.get('theme').iconTemplateUrl], function(iconTemplate) {
+					navNode.get('theme').iconTemplate = Handlebars.compile(iconTemplate);
+					navNode.set('ready', true)
+				});
+			}
 		},
 		
 		defaults : {
-			'open': false
+			'open': false,
+			'ready': false
 		},
 
 		target : function() {

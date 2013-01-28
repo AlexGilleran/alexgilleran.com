@@ -13,7 +13,11 @@ define([
 			this.fitWindow = _.bind(this.fitWindow, this);
 			$(window).resize(this.fitWindow);
 			
-			this.render();
+			if (this.model.get('ready')) {
+				this.render();
+			}
+			
+			this.listenTo(this.model, 'change:ready', this.render);
 		},
 		
 		render: function() {

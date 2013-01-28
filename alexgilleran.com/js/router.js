@@ -12,10 +12,10 @@ define([
 		},
 		
 		defaultAction : function() {
+			structure = new Structure();
+			structure.fetch();
 		
 			$(document).ready(function() {
-				structure = new Structure();
-				structure.fetch();
 				SiteView = new SiteView({model : structure});
 			});
 			

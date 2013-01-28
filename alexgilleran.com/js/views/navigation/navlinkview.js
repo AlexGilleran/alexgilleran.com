@@ -28,9 +28,12 @@ define([
 				this.invisible = $color(255, 255, 255, 0);
 			}
 		
-			this.listenTo(this.model, 'change:open', this.setOpenStyling);
+			if (this.model.get('ready')) {
+				this.render();
+			}
 			
-			this.render();
+			this.listenTo(this.model, 'change:open', this.setOpenStyling);
+			this.listenTo(this.model, 'change:ready', this.render);	
 		},
 
 		render : function() {

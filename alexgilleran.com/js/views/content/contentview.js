@@ -13,9 +13,21 @@ define([
 		initialize : function() {
 			this.fitWindow = _.bind(this.fitWindow, this);
 			
-			this.listenTo(this.model, 'change:currentNode', this.render);
+			this.listenTo(this.model, 'change:currentNode', this.openNode);
 			
-			this.render();
+		},
+		
+		openNode : function() {
+			this.stopListening('change:ready');
+			
+			var View = require([this.model.get('currentNode').get('contentView')]);
+			var Model = require([this.model.get('currentNode').get('model')['class']]);
+			
+			if (this.model.get('currentNode').get('ready')) {
+				this.render();
+			} else {
+				this.listenTo(this.model.get('currentNode'), 'change:ready', this.render);
+			}
 		},
 		
 		render : function() {
@@ -41,10 +53,9 @@ define([
 				axis: 'y'
 			});
 			
-			var View = this.model.get('currentNode').get('contentView');
 			this.nodeView = new View({
 				el: this.$el.find('.overview'), 
-				model: this.model.get('currentNode').get('model')
+				model: new Model(this.model.get('currentNode').get('model')['attributes'])
 			});
 			
 			var fadeWrappers = this.$el.find('.fade-wrapper');
