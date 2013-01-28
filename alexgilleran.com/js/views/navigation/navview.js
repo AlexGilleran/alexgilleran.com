@@ -29,10 +29,12 @@ define([
 		},
 
 		fitWindow : function() {
-			var navLink = $('.nav-resizeable');
-			var navLinkCount = this.model.nodeList.length;
-			var totalSpacing = navLink.outerHeight(true) - navLink.innerHeight();
-			var totalBorder = navLink.outerHeight(false) - navLink.innerHeight();
+			var spacerRatio = 0.5;
+			
+			var navNodes = $('.nav-node');
+			var navLinkCount = this.model.nodeCount() + (this.model.spacerCount() * spacerRatio);
+			var totalSpacing = navNodes.outerHeight(true) - navNodes.innerHeight();
+			var totalBorder = navNodes.outerHeight(false) - navNodes.innerHeight();
 
 			// Side length not taking into account margins
 			var simpleSideLength = this.$el.height() / navLinkCount;
@@ -46,13 +48,14 @@ define([
 			var sideLength = (simpleSideLength + distributedBorders) - distributedSpacing;
 
 			// Set the width of the whole <nav>
-			this.$el.width(sideLength);
+			this.$el.width(sideLength + totalBorder);
 
 			// Set the height/width of nav link oblongs
-			navLink.height(sideLength).width(sideLength);
+			navNodes.height(sideLength).width(sideLength);
+			this.$el.find('.spacer').height(simpleSideLength * 0.5 - totalBorder).width(sideLength);
 
 			// Remove the top margin of the top link
-			navLink.last().css('margin-bottom', 0);
+			navNodes.last().css('margin-bottom', 0);
 		},
 	});
 

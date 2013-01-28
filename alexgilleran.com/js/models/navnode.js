@@ -16,6 +16,10 @@ define(['backbone'], function(Backbone) {
 				return '_self';
 			}
 		},
+		
+		isSpacer : function() {
+			return !this.get('id');
+		}
 	});
 
 	return NavNode;

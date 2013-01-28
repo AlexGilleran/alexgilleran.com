@@ -96,10 +96,10 @@ textarea {
 body {
 	background-image: url('../img/black-stripe.png');
 	position: absolute;
-	top: 20px;
-	bottom: 20px;
-	left: 20px;
-	right: 20px;
+	top: 15px;
+	bottom: 15px;
+	left: 15px;
+	right: 15px;
 }
 
 #site-header {
@@ -118,7 +118,6 @@ body {
 	-o-transform: rotate(270deg); /* Opera */
 	-moz-transform: rotate(270deg); /* Firefox */
 	transform:rotate(270deg);
-	
 	font-size: 3em;
 }
 
@@ -132,10 +131,79 @@ body {
 	float: left;
 }
 
+.spacer {
+	display: block;
+    position: relative;
+    float: left;
+}
+
+.oblong {
+    position: relative;
+    float: left;
+	border-radius: 10px;
+	border: solid 1px #000000;
+}
+
+.oblong:after {
+	border-radius: 10px;
+}
+
+#nav-list {
+	padding: 0;
+	margin: 0;
+}
+.nav-link {
+	box-shadow: 0 0 6px 6px;
+	color:  rgba(0, 0, 0, 0);
+	display: block;	
+}
+	
+.nav-link:focus {
+    -moz-outline-style: none;     
+    outline-style: none;
+    outline-width: 0px;
+    outline-color: -moz-use-text-color;
+}
+
+.nav-link:hover .nav-link-text, .nav-link:focus .nav-link-text  {
+	color: rgba(255, 255, 255, 1);
+}
+
+.nav-link-text {
+	color: rgba(0, 0, 0, 0);
+	position: relative;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 0.7em;
+}
+
+.nav-link-text-wrapper {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.nav-link-icon {
+	position: absolute;
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%;
+	height: 40%;
+	margin-top: 30%;
+	margin-right: 30%;	
+}
+
+.nav-node {
+	float: left;
+	margin-bottom: 15px;
+}
+
 #content {
 	position: absolute;
 	top: 0; 
-	right: 370px; 
+	right: 367px; 
 	bottom: 0;
     display: inline-block;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -164,8 +232,8 @@ body {
 
 .content-icon-background {
     position: absolute;
-    right: 20px;
-	bottom: 20px;
+    right: 15px;
+	bottom: 15px;
 	height: 300px;
 	width: 300px;
     z-index: -1;
@@ -204,6 +272,7 @@ body {
 	width: 10px;
 	background: none;
 }
+
 .content-text .thumb .end {
 	overflow: hidden;
 	position: absolute;
@@ -211,6 +280,7 @@ body {
 	border-radius: 10px;
 	opacity: 0.6;
 }
+
 .content-text .disable {
 	display: none;
 }
@@ -266,14 +336,8 @@ body {
     right: 0px;
 }
 
-.glass {
-	
-}
-
 .glass:after {
-	border: 2px solid rgba(255, 255, 255, 0.1); 
-	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-	border-right: 2px solid rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
     -webkit-background-origin: border-box;
     -moz-background-origin: border;
     background-origin: border-box;
@@ -293,71 +357,7 @@ body {
 }
 
 
-.oblong {
-    position: relative;
-    float: left;
-	border-radius: 10px;
-	border: solid 1px #000000;
-	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
-}
 
-.oblong:after {
-	border-radius: 10px;
-}
-
-#nav-list {
-	padding: 0;
-	margin: 0;
-}
-.nav-link {
-	box-shadow: 0 0 7px 7px;
-	color:  rgba(0, 0, 0, 0);
-	display: block;	
-}
-	
-.nav-link:focus {
-    -moz-outline-style: none;     
-    outline-style: none;
-    outline-width: 0px;
-    outline-color: -moz-use-text-color;
-}
-
-.nav-link:hover .nav-link-text, .nav-link:focus .nav-link-text  {
-	color: rgba(255, 255, 255, 1);
-}
-
-.nav-link-text {
-	color: rgba(0, 0, 0, 0);
-	position: relative;
-	text-decoration: none;
-	font-weight: bold;
-	font-size: 0.7em;
-}
-
-.nav-link-text-wrapper
-{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-}
-
-.nav-link-icon {
-	position: absolute;
-	width: 40%;
-	margin-left: 30%;
-	margin-right: 30%;
-	height: 40%;
-	margin-top: 30%;
-	margin-right: 30%;
-	
-}
-
-.nav-resizeable {
-	float: left;
-	margin-bottom: 20px;
-}
 
 
 

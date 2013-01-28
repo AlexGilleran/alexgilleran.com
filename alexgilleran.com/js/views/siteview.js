@@ -34,7 +34,7 @@ define([
 			var generalMargin = this.$el.position().left;
 			this.navView.fitWindow();
 			
-			var contentWidth = this.$el.innerWidth() - $('#site-header').width() - this.navView.$el.width() - this.asideView.$el.width() - generalMargin * 2;
+			var contentWidth = this.$el.innerWidth() - $('#site-header').outerWidth(true) - this.navView.$el.outerWidth(true) - this.asideView.$el.outerWidth(true) - generalMargin * 2 - 2;
 			this.contentView.fitWindow(contentWidth);
 		}
   	});

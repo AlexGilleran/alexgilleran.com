@@ -36,7 +36,7 @@ define([
 		render : function() {
 			var model = this.model;
 			
-			if (model.get('id')) {
+			if (!model.isSpacer()) {
 				var svgTemplate = model.get('theme').iconTemplate;
 				
 				var iconSvg;

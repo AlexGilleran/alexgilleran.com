@@ -7,7 +7,31 @@ define([
 		nodeList: [],
 		
 		initialize : function() {
-	
+			
+		},
+		
+		nodeCount : function() {
+			var count = 0;
+			
+			this.nodeList.forEach(function(node) {
+				if (!node.isSpacer()) {
+					count++;
+				}
+			});
+			
+			return count;
+		},
+		
+		spacerCount : function() {
+			var count = 0;
+			
+			this.nodeList.forEach(function(node) {
+				if (node.isSpacer()) {
+					count++;
+				}
+			});
+			
+			return count;
 		},
 
 		fetch : function() {
