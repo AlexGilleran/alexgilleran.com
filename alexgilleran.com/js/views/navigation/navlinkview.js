@@ -23,34 +23,25 @@ define([
 		},
 		
 		initialize : function() {
+			_.bindAll(this);
+			
 			if (this.model.get('theme')) {
 				this.openColor = $color(this.model.get('theme').color.r, this.model.get('theme').color.g, this.model.get('theme').color.b);
 				this.invisible = $color(255, 255, 255, 0);
 			}
 		
-			if (this.model.get('ready')) {
-				this.render();
-			}
-			
 			this.listenTo(this.model, 'change:open', this.setOpenStyling);
-			this.listenTo(this.model, 'change:ready', this.render);	
+			
+			this.render();
 		},
 
 		render : function() {
 			var model = this.model;
 			
 			if (!model.isSpacer()) {
-				var svgTemplate = model.get('theme').iconTemplate;
-				
-				var iconSvg;
-				if (svgTemplate) {
-					iconSvg = svgTemplate({r:255,b:255,g:255,a:1,'class':'nav-link-icon'});
-				}
-				
 				var linkHtml = this.linkTemplate({
 					'label' : model.get('label'),
 					'url' : model.get('url'),
-					'svg': iconSvg,
 					'id' : model.get('id'),
 					'icon-url' : model.get('theme').icon,
 					'target' : model.target()
@@ -66,11 +57,26 @@ define([
 				});
 				
 				$('#dynamic-styles').append(customCss);
+			
+				this.setOpenStyling();
+			
+				if (this.model.get('ready')) {
+					this.renderIcon();
+				}
+				this.listenTo(this.model, 'change:ready', this.renderIcon);	
 			} else {
 				this.$el.html(this.spacerTemplate());
 			}
+		},
+		
+		renderIcon : function() {
+			var svgTemplate = this.model.get('theme').iconTemplate;
 			
-			this.setOpenStyling();
+			var iconSvg;
+			if (svgTemplate) {
+				iconSvg = svgTemplate({r:255,b:255,g:255,a:1,'class':'nav-link-icon'});
+				this.$el.find('.nav-node').append(iconSvg);
+			}
 		},
 		
 		onClick : function(event) {

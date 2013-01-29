@@ -4,7 +4,7 @@
             "id": "nav-about-me",
             "label": "aboutme",
             "url": "about_me",
-            "contentView": "js/views/content/blurbview",
+            "contentViewClass": "js/views/content/blurbview",
             "model": {
                 "class": "js/models/blurb",
                 "attributes": {
@@ -25,7 +25,7 @@
             "id": "nav-projects",
             "label": "projects",
             "url": "projects",
-            "contentView": "",
+            "contentViewClass": "",
             "theme": {
                 "iconTemplateUrl": "templates/icons/projects_icon.svg",
                 "color": {
@@ -39,7 +39,7 @@
             "id": "nav-blog",
             "label": "blog",
             "url": "blog",
-            "contentView": "js/views/blog/blogview",
+            "contentViewClass": "js/views/blog/blogview",
             "theme": {
                 "iconTemplateUrl": "templates/icons/blog_icon.svg",
                 "color": {

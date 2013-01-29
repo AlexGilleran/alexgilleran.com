@@ -15,10 +15,11 @@ define([
 			
 			this.listenTo(this.model, 'change:currentNode', this.openNode);
 			
+			this.openNode();
 		},
 		
 		openNode : function() {
-			this.stopListening('change:ready');
+			//this.stopListening(null, 'change:ready', this.render);
 			
 			var View = require([this.model.get('currentNode').get('contentView')]);
 			var Model = require([this.model.get('currentNode').get('model')['class']]);
@@ -31,48 +32,53 @@ define([
 		},
 		
 		render : function() {
-			this.$el.find('.fade-wrapper').stop(true, true);
-			
-			var svgIcon = this.model.get('currentNode').get('theme').iconTemplate({
-				'class': 'content-icon-background',
-				'r': this.model.get('currentNode').get('theme').color.r,
-				'g': this.model.get('currentNode').get('theme').color.g,
-				'b': this.model.get('currentNode').get('theme').color.b,
-				'a': '0.1',
-			});
-			
-			var newContent = this.contentTemplate({
-				'title': this.model.get('currentNode').get('label'),
-				'node-class': this.model.get('currentNode').get('id'),
-				'background-icon': svgIcon 
-			});
-			
-			this.$el.html(newContent);
-			var scrollDiv = this.$el.find('.content-text');
-			scrollDiv.tinyscrollbar({
-				axis: 'y'
-			});
-			
-			this.nodeView = new View({
-				el: this.$el.find('.overview'), 
-				model: new Model(this.model.get('currentNode').get('model')['attributes'])
-			});
-			
-			var fadeWrappers = this.$el.find('.fade-wrapper');
-			this.changeBackground();
-			
-			var newFadeWrapper = fadeWrappers.last();
-			newFadeWrapper.fadeIn(500, function() {
-				scrollDiv.tinyscrollbar_update();
-			});
-			
-			if (fadeWrappers.length > 1) {
-				var oldFadeWrapper = newFadeWrapper.prev();
-				oldFadeWrapper.fadeOut(500, function() {
-					oldFadeWrapper.remove();
+			contentFrame = this; 
+			require([
+				this.model.get('currentNode').get('contentViewClass'),
+				contentFrame.model.get('currentNode').get('model')['class']
+			], function(View, Model) {
+				contentFrame.$el.find('.fade-wrapper').stop(true, true);
+				
+				var svgIcon = contentFrame.model.get('currentNode').get('theme').iconTemplate({
+					'class': 'content-icon-background',
+					'r': contentFrame.model.get('currentNode').get('theme').color.r,
+					'g': contentFrame.model.get('currentNode').get('theme').color.g,
+					'b': contentFrame.model.get('currentNode').get('theme').color.b,
+					'a': '0.1',
 				});
-			}
-			
+				
+				var newContent = contentFrame.contentTemplate({
+					'title': contentFrame.model.get('currentNode').get('label'),
+					'node-class': contentFrame.model.get('currentNode').get('id'),
+					'background-icon': svgIcon 
+				});
+				
+				contentFrame.$el.html(newContent);
+				var scrollDiv = contentFrame.$el.find('.content-text');
+				scrollDiv.tinyscrollbar({
+					axis: 'y'
+				});
+				
+				contentFrame.nodeView = new View({
+					el: contentFrame.$el.find('.overview'), 
+					model: new Model(contentFrame.model.get('currentNode').get('model')['attributes'])
+				});
+				
+				var fadeWrappers = contentFrame.$el.find('.fade-wrapper');
+				contentFrame.changeBackground();
+				
+				var newFadeWrapper = fadeWrappers.last();
+				newFadeWrapper.fadeIn(500, function() {
+					scrollDiv.tinyscrollbar_update();
+				});
+				
+				if (fadeWrappers.length > 1) {
+					var oldFadeWrapper = newFadeWrapper.prev();
+					oldFadeWrapper.fadeOut(500, function() {
+						oldFadeWrapper.remove();
+					});
+				}
+			})
 		},
 		
 		changeBackground : function() {
@@ -84,7 +90,10 @@ define([
 
 		fitWindow : function(width) {
 			this.$el.width(width);
-			this.$el.find('.content-text').tinyscrollbar_update();
+			
+			if (this.model.get('currentNode').get('ready')) {
+				this.$el.find('.content-text').tinyscrollbar_update();
+			}
 		}
   	});
   	

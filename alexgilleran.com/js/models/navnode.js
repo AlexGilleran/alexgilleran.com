@@ -3,7 +3,7 @@ define(['backbone'], function(Backbone) {
 		initialize : function() {
 			_.bindAll(this)
 			
-			if (!this.isSpacer) {
+			if (!this.isSpacer()) {
 				var navNode = this;
 				require(['text!' + navNode.get('theme').iconTemplateUrl], function(iconTemplate) {
 					navNode.get('theme').iconTemplate = Handlebars.compile(iconTemplate);
