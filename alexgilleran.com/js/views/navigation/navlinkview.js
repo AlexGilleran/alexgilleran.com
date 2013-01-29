@@ -23,7 +23,7 @@ define([
 		},
 		
 		initialize : function() {
-			_.bindAll(this);
+			//_.bindAll(this);
 			
 			if (this.model.get('theme')) {
 				this.openColor = $color(this.model.get('theme').color.r, this.model.get('theme').color.g, this.model.get('theme').color.b);
@@ -82,7 +82,7 @@ define([
 		onClick : function(event) {
 			$(event.target).blur();
 			
-			if (this.model.get('contentView')) {
+			if (this.model.get('contentViewUrl')) {
 				event.preventDefault();	
 				this.model.set('open', true);
 			}

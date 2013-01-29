@@ -20,7 +20,7 @@ define([
 				success : function(structureData, textStatus, jqXHR) {
 					structureData.data.forEach(function(nodeData) {
 						navNode = new NavNode(nodeData);
-						structure.listenTo(navNode, 'change:open', this.onOpenNodeChanged);
+						structure.listenTo(navNode, 'change:open', structure.onOpenNodeChanged);
 						
 						if (navNode.get('open')) {
 							structure.set('currentNode', navNode);

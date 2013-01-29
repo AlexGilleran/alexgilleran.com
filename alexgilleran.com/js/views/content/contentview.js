@@ -20,10 +20,7 @@ define([
 		
 		openNode : function() {
 			//this.stopListening(null, 'change:ready', this.render);
-			
-			var View = require([this.model.get('currentNode').get('contentView')]);
-			var Model = require([this.model.get('currentNode').get('model')['class']]);
-			
+						
 			if (this.model.get('currentNode').get('ready')) {
 				this.render();
 			} else {
@@ -34,8 +31,8 @@ define([
 		render : function() {
 			contentFrame = this; 
 			require([
-				this.model.get('currentNode').get('contentViewClass'),
-				contentFrame.model.get('currentNode').get('model')['class']
+				this.model.get('currentNode').get('contentViewUrl'),
+				contentFrame.model.get('currentNode').get('model')['url']
 			], function(View, Model) {
 				contentFrame.$el.find('.fade-wrapper').stop(true, true);
 				

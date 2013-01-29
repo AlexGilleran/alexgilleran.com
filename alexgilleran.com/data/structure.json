@@ -2,11 +2,11 @@
     "data": [
         {
             "id": "nav-about-me",
-            "label": "aboutme",
+            "label": "about me",
             "url": "about_me",
-            "contentViewClass": "js/views/content/blurbview",
+            "contentViewUrl": "js/views/content/blurbview",
             "model": {
-                "class": "js/models/blurb",
+                "url": "js/models/blurb",
                 "attributes": {
                     "urlRoot": "data/aboutme.md"
                 }
@@ -25,7 +25,13 @@
             "id": "nav-projects",
             "label": "projects",
             "url": "projects",
-            "contentViewClass": "",
+            "contentViewUrl": "js/views/project/projectlistview",
+            "model": {
+                "url": "js/models/blurb",
+                "attributes": {
+                    "urlRoot": "data/aboutme.md"
+                }
+            },
             "theme": {
                 "iconTemplateUrl": "templates/icons/projects_icon.svg",
                 "color": {
@@ -39,7 +45,13 @@
             "id": "nav-blog",
             "label": "blog",
             "url": "blog",
-            "contentViewClass": "js/views/blog/blogview",
+            "contentViewUrl": "js/views/blog/blogview",
+            "model": {
+                "url": "js/models/blurb",
+                "attributes": {
+                    "urlRoot": "data/aboutme.md"
+                }
+            },
             "theme": {
                 "iconTemplateUrl": "templates/icons/blog_icon.svg",
                 "color": {
