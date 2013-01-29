@@ -1,4 +1,4 @@
-I'm Alex Gilleran and this is my little off-ramp of the information superhighway. I'm a developer in a number of technologies including:
+I'm Alex Gilleran and this is my little corner of the information superhighway. I'm a developer in a number of technologies including:
 
 *  Java (Spring, Hibernate, Struts2)
 *  Android
@@ -19,5 +19,3 @@ If you want to get in contact with me, you can do so via the following means:
   * Github: [AlexGilleran](http://github.com/AlexGilleran)
   * StackOverflow: [Alex Gilleran](http://stackoverflow.com/users/873670/alex-gilleran)
   * LinkedIn: [Alex Gilleran](http://github.com/AlexGilleran)  
-
-![Self-Picture](img/transfagarasan.jpg "Me")

@@ -1,0 +1,21 @@
+{
+	"projects" : [{
+		"title" : "IceSoap",
+		"subtitle" : "Easy, asynchronous SOAP for Android",
+		"image" : "img/projects/icesoap.svg",
+		"url" : "http://code.google.com/p/icesoap",
+		"descriptionUrl" : "data/projects/icesoap.md"
+	} , {
+		"title" : "Panniering",
+		"subtitle" : "Around Europe by Motorcycle",
+		"image" : "img/projects/panniering.png",
+		"url" : "http://panniering.com",
+		"descriptionUrl" : "data/projects/panniering.md"
+	} , {
+		"title" : "alexgilleran.com",
+		"subtitle" : "My Little Corner of the Information Superhighway",
+		"image" : "img/projects/alexgilleran.com.svg",
+		"url" : "http://alexgilleran.com",
+		"descriptionUrl" : "data/projects/icesoap.md"
+	}]
+}

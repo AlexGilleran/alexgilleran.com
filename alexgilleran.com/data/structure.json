@@ -27,9 +27,9 @@
             "url": "projects",
             "contentViewUrl": "js/views/project/projectlistview",
             "model": {
-                "url": "js/models/blurb",
+                "url": "js/models/projectlist",
                 "attributes": {
-                    "urlRoot": "data/aboutme.md"
+                    "url": "data/projects/projects.json"
                 }
             },
             "theme": {

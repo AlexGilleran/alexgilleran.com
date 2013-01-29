@@ -19,7 +19,7 @@ define([
 		},
 		
 		openNode : function() {
-			//this.stopListening(null, 'change:ready', this.render);
+			this.stopListening(null, 'change:ready', this.render);
 						
 			if (this.model.get('currentNode').get('ready')) {
 				this.render();
@@ -75,7 +75,7 @@ define([
 						oldFadeWrapper.remove();
 					});
 				}
-			})
+			});
 		},
 		
 		changeBackground : function() {
