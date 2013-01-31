@@ -12,22 +12,21 @@ define([
 			//this.onProjectReady = _.bind(this.onProjectReady, this);
 		},
 		
-		fetch : function(params) {
+		fetch : function() {
 			var projectList = this;
+			var projectFetches = [];
 			
-			$.ajax(this.url, {
+			return $.when($.ajax(this.url, {
 				success : function(data, textStatus, jqXhr) {
-					var projectFetches = [];
 					
 					data.projects.forEach(function(projectData) {
 						var project = new Project(projectData);
 						projectList.add(project);
 						projectFetches.push(project.fetch());
 					}, projectList);
-					
-					$.when.apply(null, projectFetches).done(params.success);
 				}
-			});
+			}))
+			.then(function() {return $.when.apply(null, projectFetches)});
 		}
 	});
 	

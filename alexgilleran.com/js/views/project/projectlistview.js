@@ -15,7 +15,7 @@ define([
 			
 			this.listenTo(this.model, 'change:ready', this.onProjectReady);
 			
-			this.model.fetch({success: this.render});
+			this.model.fetch().done(this.render);
 		},
 		
 		render : function() {
