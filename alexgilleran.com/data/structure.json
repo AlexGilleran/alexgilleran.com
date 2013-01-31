@@ -27,10 +27,7 @@
             "url": "projects",
             "contentViewUrl": "js/views/project/projectlistview",
             "model": {
-                "url": "js/models/projectlist",
-                "attributes": {
-                    "url": "data/projects/projects.json"
-                }
+                "url": "js/models/projectlist"
             },
             "theme": {
                 "iconTemplateUrl": "templates/icons/projects_icon.svg",

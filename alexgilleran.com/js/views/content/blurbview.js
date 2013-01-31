@@ -24,9 +24,7 @@ define([
 			var blurbHtml = this.converter.makeHtml(blurbMd);
 			
 			this.$el.html(blurbHtml);
-
 		},
-		
 	});
 	
 	return BlurbView;

@@ -8,13 +8,12 @@ define([
 			
 		},
 		
-		fetch : function() {
-			project = this;
+		fetch : function(params) {
+			var project = this;
 			
-			$.ajax(this.descriptionUrl, {
+			return $.ajax(this.get('descriptionUrl'), {
 				success : function(data, textStatus, jqXhr) {
 					project.set('description', data);
-					project.set('ready', true);
 				}
 			});
 		},

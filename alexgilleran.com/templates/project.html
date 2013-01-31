@@ -1,10 +1,15 @@
-<article>
-	<a href="{{url}}">
-		<h2>{{title}}</h2>
-	</a>
-	<h3>{{subtitle}}</h3>
+<article class="project full-width">
+	<div class="project-meta full-width">
+		<h2 class="project-title">{{title}}</h2>
+		<h3 class="project-subtitle">{{subtitle}}</h3>
+		<a class="project-link full-width" href="{{url}}">{{url}}</a>
+	</div>
 	
-	<img src={{img}} />
+	<img class="project-icon" src={{img}} />
 	
-	{{{description}}}
+	<div class="project-description">
+		{{{description}}}
+	</div>
+	
+	<hr />
 </article>

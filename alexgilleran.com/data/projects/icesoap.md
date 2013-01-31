@@ -1,2 +1,1 @@
-
-![Self-Picture](img/transfagarasan.jpg "Me")
+IceSoap is a project.

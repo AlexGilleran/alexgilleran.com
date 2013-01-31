@@ -3,35 +3,40 @@ define([
   'underscore', 
   'backbone',
   'handlebars',
+  'showdown',
   'text!templates/project.html'
-], function($, _, Backbone, Handlebars, ProjectTemplate){
+], function($, _, Backbone, Handlebars, Showdown, ProjectTemplate){
 	var ProjectListView = Backbone.View.extend({
 		projectTemplate : Handlebars.compile(ProjectTemplate),
+		converter : new Showdown.converter(),
 		
 		initialize : function () {
-			this.model.fetch();
+			_.bindAll(this);
 			
-			if (this.model.get('ready')) {
-				this.render();
-			} else {
-				this.listenTo(this.model, 'change:ready', this.render);
-			}
+			this.listenTo(this.model, 'change:ready', this.onProjectReady);
+			
+			this.model.fetch({success: this.render});
 		},
 		
-		render : function () {
-			this.model.forEach(function(project) {
-				var description = project.get('descriptionUrl'); 
-				
+		render : function() {
+			for (i = 0; i < this.model.length; i++) {
+				var project = this.model.at(i);
+								
 				this.$el.append(this.projectTemplate({
 					url : project.get('url'),
 					title : project.get('title'),
 					subtitle : project.get('subtitle'),
 					img : project.get('image'),
-					description : description
+					description : this.converter.makeHtml(project.get('description'))
 				}));
-			}, this);
-		}
+				
+				if (i < this.model.length - 1) {
+					this.$el.append('<hr />');
+				}
+			}
+		},
   	});
   	
   	return ProjectListView;
 });
+

@@ -8,40 +8,28 @@ define([
 		model: Project,
 		url: 'data/projects/projects.json', 
 		
-		defaults : {
-			'ready' : false
-		},
-		
 		initialize : function() {
-
+			//this.onProjectReady = _.bind(this.onProjectReady, this);
 		},
 		
-		fetch : function() {
-			projectList = this;
+		fetch : function(params) {
+			var projectList = this;
 			
 			$.ajax(this.url, {
 				success : function(data, textStatus, jqXhr) {
-					projectList.unreadyProjectCount = data.projects.length;
+					var projectFetches = [];
 					
 					data.projects.forEach(function(projectData) {
 						var project = new Project(projectData);
-						projectList.listenTo(project, 'change:ready', projectList.onProjectReady)
-						project.fetch();
 						projectList.add(project);
-					});
+						projectFetches.push(project.fetch());
+					}, projectList);
+					
+					$.when.apply(null, projectFetches).done(params.success);
 				}
 			});
-		},
-		
-		onProjectReady : function(project) {
-			this.unreadyProjectCount--;
-			
-			if (this.unreadyProjectCount <= 0) {
-				this.set('ready', true);
-			}
-		},
-		
+		}
 	});
-
+	
 	return ProjectList;
 });

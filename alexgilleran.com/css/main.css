@@ -20,7 +20,6 @@ textarea {
 
 body {
     font-size: 1em;
-    line-height: 1.4;
 }
 
 /*
@@ -102,6 +101,20 @@ body {
 	right: 15px;
 }
 
+a {
+	color: #AAAAAA;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.8em;
+}
+
+h3 {
+
+}
+
 #site-header {
 	display: inline-block;
 	float: left;
@@ -141,7 +154,7 @@ body {
     position: relative;
     float: left;
 	border-radius: 10px;
-	border: solid 1px #000000;
+    border: 1px solid #444444;
 }
 
 .oblong:after {
@@ -206,7 +219,6 @@ body {
 	right: 367px; 
 	bottom: 0;
     display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.2);
     overflow: hidden;
 }
 
@@ -300,9 +312,10 @@ body {
 }
 
 .overview h2 {
-	margin-bottom: 0.2em;
+/** margin-bottom: 0.2em; **/
 }
 
+/**
 .overview img {
 	width: 80%;
 	margin-top: 0.9em;
@@ -312,11 +325,11 @@ body {
 	opacity: 0.8;
     border: 1px solid rgba(100, 100, 100, 0.8);
 }
+**/
 
 .overview a {
-	text-decoration: none;
-	font-weight: bold;
 }
+
 
 .noSelect {
 	user-select: none;
@@ -326,8 +339,54 @@ body {
 	-webkit-user-select: none;
 }
 
+.full-width {
+	float: left;
+	width: 100%;
+}
+
+.project {
+	margin-bottom: 15px; 
+}
+
+.project-meta {
+
+}
+
+.project-icon {
+	float: left;
+	width: 6em;
+	margin: 0.5em 0.7em 0.7em 0;
+	border-radius: 5px;
+   /**border: 1px solid #444444;**/
+}
+
+.project-titles {
+	float: left;
+}
+
+.project-title {
+	margin: 0;
+}
+.project-subtitle {
+	margin: 0;
+	margin-top: 0.15em;
+	float: left;
+	font-weight: normal;
+}
+
+.project-link {
+	float: left;
+	display: block;
+	margin-top: 0.1em;
+}
+
+.project-description {
+	float: left;
+	margin-top: 0.4em;
+}
+
+
 #content-aside {
-    border: 1px solid rgba(255, 255, 255, 0.2);
 	background: rgba(100, 100, 100, 0.2);
     position: absolute;
     width: 350px;
