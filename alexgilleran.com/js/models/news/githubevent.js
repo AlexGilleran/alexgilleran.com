@@ -15,13 +15,18 @@ define([
 		},
 		
 		text: function() {
-			return this.get('text');
+			if (this.get('type') == 'PushEvent') {
+				return this.get('payload').commits[0].message;
+			} else if (this.get('type') == 'CreateEvent') {
+				return this.get('payload').description.message;
+			}
 		},
 		
 		source: function() {
-			return 'twitter';
+			return 'github';
 		}
 	});
 	
 	return Tweet;
 });
+
