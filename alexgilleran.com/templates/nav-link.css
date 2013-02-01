@@ -6,7 +6,7 @@
 	background: rgba({{r}}, {{g}}, {{b}}, 0.6);
 }
 
-.{{id}}-color {
+.{{id}}-color, .{{id}} a {
 	color: rgb({{r}}, {{g}}, {{b}});
 }
 

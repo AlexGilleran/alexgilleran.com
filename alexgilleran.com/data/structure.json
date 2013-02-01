@@ -42,11 +42,11 @@
             "id": "nav-blog",
             "label": "blog",
             "url": "blog",
-            "contentViewUrl": "js/views/blog/blogview",
+            "contentViewUrl": "js/views/content/blurbview",
             "model": {
                 "url": "js/models/blurb",
                 "attributes": {
-                    "urlRoot": "data/aboutme.md"
+                    "urlRoot": "data/blogpark.md"
                 }
             },
             "theme": {

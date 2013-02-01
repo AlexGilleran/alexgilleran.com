@@ -102,9 +102,12 @@ body {
 }
 
 a {
-	color: #AAAAAA;
 	text-decoration: none;
 	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 h2 {
@@ -159,6 +162,18 @@ h3 {
 
 .oblong:after {
 	border-radius: 10px;
+}
+
+.section-header-text {
+	margin: 0;
+	padding: 20px;
+	font-size: 3em;
+    text-align: left;
+}
+
+.section-text {
+	position: absolute;
+	top: 6em; bottom: 0; left: 0; right: 0;
 }
 
 #nav-list {
@@ -222,7 +237,6 @@ h3 {
     overflow: hidden;
 }
 
-
 .fade-wrapper {
 	display: none;
 	position: absolute;
@@ -235,13 +249,6 @@ h3 {
 	height: 15%;
 }
 
-#content-header-text {
-	margin: 0;
-	padding: 20px;
-	font-size: 3em;
-    text-align: left;
-}
-
 .content-icon-background {
     position: absolute;
     right: 15px;
@@ -251,10 +258,6 @@ h3 {
     z-index: -1;
 }
 
-.content-text {
-	position: absolute;
-	top: 6em; bottom: 0; left: 0; right: 0;
-}
 .content-text .viewport {
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
@@ -349,13 +352,14 @@ h3 {
 }
 
 .project-meta {
-
+	float: left;
+	margin-top: 0.7em;
 }
 
 .project-icon {
 	float: left;
 	width: 6em;
-	margin: 0.5em 0.7em 0.7em 0;
+	margin: 1.3em;
 	border-radius: 5px;
    /**border: 1px solid #444444;**/
 }
@@ -367,22 +371,29 @@ h3 {
 .project-title {
 	margin: 0;
 }
+
 .project-subtitle {
 	margin: 0;
 	margin-top: 0.15em;
+	margin-bottom: 0.15em;
 	float: left;
-	font-weight: normal;
+}
+
+.project-technologies {
+	clear: right;
+	margin-top: 0.4em;
+	font-style: italic;
 }
 
 .project-link {
 	float: left;
 	display: block;
-	margin-top: 0.1em;
+	margin-top: 0.15em;
+	clear: right;
 }
 
 .project-description {
 	float: left;
-	margin-top: 0.4em;
 }
 
 
@@ -415,7 +426,9 @@ h3 {
   	background: linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
 }
 
-
+.aside-social-color {
+	color: #888888;
+}
 
 
 
