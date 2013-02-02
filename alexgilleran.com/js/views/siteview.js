@@ -23,7 +23,7 @@ define([
 		
 		render: function() {
 			this.navView = new NavView({el: $('#main-nav'), model: this.model});
-			this.contentView = new ContentView({el: $('#content'), model: this.model});
+			this.contentView = new ContentView({el: $('#content-main'), model: this.model});
 						
 			this.fitWindow();
 		},
@@ -45,8 +45,10 @@ define([
 			var generalMargin = this.$el.position().left;
 			this.navView.fitWindow();
 			
-			var contentWidth = this.$el.innerWidth() - $('#site-header').outerWidth(true) - this.navView.$el.outerWidth(true) - this.asideView.$el.outerWidth(true) - generalMargin * 2 - 2;
-			this.contentView.fitWindow(contentWidth);
+			var contentWidth = this.$el.innerWidth() - this.navView.$el.outerWidth(true)- generalMargin; //- this.asideView.$el.outerWidth(true) ;
+			
+			this.$el.find('#content').width(contentWidth);			
+			this.$el.find('#content-aside').css('left', $('#content-main').width() + generalMargin + 2);
 		}
   	});
   	

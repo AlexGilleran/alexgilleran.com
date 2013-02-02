@@ -12,6 +12,7 @@ define([
 		
 		initialize : function() {
 			this.fitWindow = _.bind(this.fitWindow, this);
+			$(window).resize(this.fitWindow);
 			
 			this.listenTo(this.model, 'change:currentNode', this.openNode);
 			
@@ -85,9 +86,7 @@ define([
 			this.$el.animate({backgroundColor : color}, 500);
 		},
 
-		fitWindow : function(width) {
-			this.$el.width(width);
-			
+		fitWindow : function(width) {			
 			if (this.model.get('currentNode').get('ready')) {
 				this.$el.find('.content-text').tinyscrollbar_update();
 			}
