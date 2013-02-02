@@ -5,8 +5,9 @@ define([
 	'handlebars', 
 	'js/models/structure', 
 	'js/views/navigation/linkboxview', 
-	'text!templates/nav.html'
-], function($, _, Backbone, Handlebars, Structure, NavLinkView, NavTemplate) {
+	'text!templates/nav.html',
+	'text!templates/link.html' 
+], function($, _, Backbone, Handlebars, Structure, NavLinkView, NavTemplate, LinkTemplate) {
 	var NavView = Backbone.View.extend({
 		navTemplate : Handlebars.compile(NavTemplate),
 	
@@ -21,11 +22,10 @@ define([
 			var navList = $('#nav-list');
 
 			this.model.forEach(function(navnode) {
-				var navLinkView = new NavLinkView({model: navnode});
+				var navLinkView = new NavLinkView({model: navnode, attributes: {'class': 'nav-list-item'}, 'LinkTemplate': LinkTemplate});
 				navList.append(navLinkView.$el);
 			}, this);
 
-			//this.fitWindow(this);
 			this.resizeNavButtons();
 		},
 		
@@ -33,7 +33,7 @@ define([
 			this.$el.css('width', '');
 			var width = this.$el.width();
 			
-			var navNodes = $('.nav-node');
+			var navNodes = this.$el.find('.nav-node');
 			navNodes.width(width).height(width);
 
 			// Remove the bottom margin of the bottom button
@@ -46,11 +46,12 @@ define([
 		},
 
 		fitWindow : function(navNodes) {
-			var navLinkCount = this.model.nodeCount();
-			var totalSpacing = navNodes.outerHeight(true) - navNodes.innerHeight();
-			var totalBorder = navNodes.outerHeight(false) - navNodes.innerHeight();		
+			var navLinkCount = this.model.length;
+			var firstNode = navNodes.first()
+			var totalSpacing = firstNode.outerHeight(true) - firstNode.innerHeight();
+			var totalBorder = firstNode.outerHeight(false) - firstNode.innerHeight();		
 			
-			var sideLength = (this.$el.height() - totalSpacing * (navLinkCount - 1)) / navLinkCount; 
+			var sideLength = (this.$el.height() - (totalSpacing - totalBorder) * (navLinkCount - 1) - totalBorder * navLinkCount) / navLinkCount - totalBorder - 1; 
 
 			// Set the width of the whole <nav>
 			this.$el.width(sideLength + totalBorder);

@@ -19,13 +19,13 @@ define([
 				}
 			});
 			
-			structure.set('ready', true);
+			structure.set('structureReady', true);
 		},
 		
 		onOpenNodeChanged : function(changedNode, opened, options) {
 			// If the node has been opened, we must close all the other nodes
 			if (opened) {
-				this.nodeList.forEach(function(listNode) {
+				this.forEach(function(listNode) {
 					if (listNode != changedNode) {
 						listNode.set('open', false);
 					}

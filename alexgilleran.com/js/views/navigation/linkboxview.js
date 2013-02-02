@@ -3,26 +3,21 @@ define([
 	'backbone',
 	'handlebars',
 	'jquery.color',
-	'text!templates/link.html', 
 	'text!templates/spacer.html',
 	'text!templates/nav-link.css'
-], function($, Backbone, Handlebars, $color, LinkTemplate, SpacerTemplate, CSSTemplate){
+], function($, Backbone, Handlebars, $color, SpacerTemplate, CSSTemplate){
 	var NavLinkView = Backbone.View.extend({
-		linkTemplate : Handlebars.compile(LinkTemplate),
 		spacerTemplate : Handlebars.compile(SpacerTemplate),
 		cssTemplate : Handlebars.compile(CSSTemplate),
 		
 		tagName: 'li',
 		
-		attributes: {
-			'class': 'nav-list-item'
-		},
-
 		events: {
 			'click': 'onClick'
 		},
 		
 		initialize : function() {
+			this.linkTemplate = Handlebars.compile(this.options.LinkTemplate);
 			//_.bindAll(this);
 			
 			if (this.model.get('theme')) {
@@ -38,35 +33,32 @@ define([
 		render : function() {
 			var model = this.model;
 			
-			if (!model.isSpacer()) {
-				var linkHtml = this.linkTemplate({
-					'label' : model.get('label'),
-					'url' : model.get('url'),
-					'id' : model.get('id'),
-					'icon-url' : model.get('theme').icon,
-					'target' : model.target()
-				});
-				
-				this.$el.html(linkHtml);
-				
-				var customCss = this.cssTemplate({
-					'id': model.get('id'),
-					'r': model.get('theme').color.r,
-					'g': model.get('theme').color.g,
-					'b': model.get('theme').color.b,
-				});
-				
-				$('#dynamic-styles').append(customCss);
+			var linkHtml = this.linkTemplate({
+				'label' : model.get('label'),
+				'url' : model.get('url'),
+				'id' : model.get('id'),
+				'icon-url' : model.get('theme').icon,
+				'target' : model.target()
+			});
 			
-				this.setOpenStyling();
+			this.$el.html(linkHtml);
 			
-				if (this.model.get('ready')) {
-					this.renderIcon();
-				}
-				this.listenTo(this.model, 'change:ready', this.renderIcon);	
-			} else {
-				this.$el.html(this.spacerTemplate());
+			var customCss = this.cssTemplate({
+				'id': model.get('id'),
+				'r': model.get('theme').color.r,
+				'g': model.get('theme').color.g,
+				'b': model.get('theme').color.b,
+			});
+			
+			$('#dynamic-styles').append(customCss);
+		
+			this.setOpenStyling();
+		
+			if (this.model.get('ready')) {
+				this.renderIcon();
 			}
+			
+			this.listenTo(this.model, 'change:ready', this.renderIcon);	
 		},
 		
 		renderIcon : function() {
@@ -75,7 +67,7 @@ define([
 			var iconSvg;
 			if (svgTemplate) {
 				iconSvg = svgTemplate({r:255,b:255,g:255,a:1,'class':'nav-link-icon'});
-				this.$el.find('.nav-node').append(iconSvg);
+				this.$el.find('.nav-link').append(iconSvg);
 			}
 		},
 		

@@ -5,7 +5,8 @@ define([
   'js/views/content/contentview',
   'js/views/navigation/navview',   
   'js/views/aside/socialasideview',   
-], function($, _, Backbone, ContentView, NavView, SocialAsideView){
+  'js/views/navigation/externallinksview',   
+], function($, _, Backbone, ContentView, NavView, SocialAsideView, ExternalLinksView){
 	var SiteView = Backbone.View.extend({
   		el: $('body'),
 		
@@ -13,17 +14,18 @@ define([
 			this.fitWindow = _.bind(this.fitWindow, this);
 			$(window).resize(this.fitWindow);
 			
-			if (this.model.get('ready')) {
+			if (this.model.get('structureReady')) {
 				this.render();
 			}
 			
-			this.listenTo(this.model, 'change:ready', this.render);
+			this.listenTo(this.model, 'change:structureReady', this.render);
 			this.listenTo(this.model, 'change:currentNode', this.renderAsideView);
 		},
 		
 		render: function() {
 			this.navView = new NavView({el: $('#main-nav'), model: this.model});
 			this.contentView = new ContentView({el: $('#content-main'), model: this.model});
+			this.externalLinksView = new ExternalLinksView({el: $('#external-links')});
 						
 			this.fitWindow();
 		},

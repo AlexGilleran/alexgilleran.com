@@ -3,26 +3,29 @@ define([
 	'underscore', 
 	'backbone', 
 	'handlebars', 
-	'js/models/structure', 
+	'js/models/externallinks', 
 	'js/views/navigation/linkboxview', 
-	'text!templates/nav.html'
-], function($, _, Backbone, Handlebars, Structure, NavLinkView, NavTemplate) {
-	var NavView = Backbone.View.extend({
+	'text!templates/nav.html',
+	'text!templates/external-link.html'
+], function($, _, Backbone, Handlebars, ExternalLinks, LinkBoxView, NavTemplate, LinkTemplate) {
+	var ExternalLinksView = Backbone.View.extend({
+		model: new ExternalLinks(),
 		navTemplate : Handlebars.compile(NavTemplate),
 	
 		initialize : function() {
-			this.fitWindow = _.bind(this.fitWindow, this);
-
-			this.render();
+			this.render = _.bind(this.render, this);
+			var externalLinksView = this;
+			
+			this.model.fetch().done(externalLinksView.render);
 		},
 
 		render : function() {
-			this.model.nodeList.forEach(function(navnode) {
-				var navLinkView = new NavLinkView({model: navnode});
+			this.model.forEach(function(link) {
+				var navLinkView = new LinkBoxView({model: link, attributes: {'class': 'nav-list-item'}, 'LinkTemplate': LinkTemplate});
 				this.$el.append(navLinkView.$el);
 			}, this);
 		},
 	});
 
-	return NavView;
+	return ExternalLinksView;
 });

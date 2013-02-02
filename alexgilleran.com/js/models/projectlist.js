@@ -9,7 +9,7 @@ define([
 		url: 'data/projects/projects.json', 
 		
 		initialize : function() {
-			//this.onProjectReady = _.bind(this.onProjectReady, this);
+
 		},
 		
 		fetch : function() {

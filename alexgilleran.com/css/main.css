@@ -121,12 +121,12 @@ h3 {
 #site-header {
 	position: absolute;
 	top: 0; left: 0; right: 0;
-	height: 4.5em;
+	height: 80px;
 }
 
 #content-row {
 	position: absolute;
-	top: 4.5em; left:0; right: 0; bottom: 0;
+	top: 80px; left:0; right: 0; bottom: 0;
 }
 
 .header-text {
@@ -135,7 +135,28 @@ h3 {
 	height: 3em;
 	margin-top: auto;
 	margin-bottom: auto;
-	margin-left: 10px;
+	margin-left: 5px;
+	float: right;
+}
+
+#external-links {
+	margin: 0;
+	padding: 0;
+}
+
+.external-links-nav {
+	float: right;
+}
+
+.nav-list-item {
+	display: inline-block;
+}
+
+.external-link {
+	height: 60px;
+	width: 60px;
+	margin-left: 20px;
+	display: inline-block;
 }
 
 #header-wrapper {
@@ -182,12 +203,12 @@ h3 {
 #nav-list {
 	padding: 0;
 	margin: 0;
+	height: 100%;
 }
 .nav-link {
 	box-shadow: 0 0 5px 5px;
 	color:  rgba(0, 0, 0, 0);
 	display: block;	
-
 }
 	
 .nav-link:focus {
@@ -219,12 +240,11 @@ h3 {
 
 .nav-link-icon {
 	position: absolute;
-	width: 40%;
-	margin-left: 30%;
-	margin-right: 30%;
-	height: 40%;
-	margin-top: 30%;
-	margin-right: 30%;	
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+	height: 50%;
+	margin-top: 25%;
 }
 
 .nav-node {
