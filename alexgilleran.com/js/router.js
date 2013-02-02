@@ -13,7 +13,7 @@ define([
 		
 		defaultAction : function() {
 			structure = new Structure();
-			structure.fetch();
+			structure.fetch({error: function(error){alert(error);}});
 		
 			$(document).ready(function() {
 				SiteView = new SiteView({model : structure});

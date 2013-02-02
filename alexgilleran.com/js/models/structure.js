@@ -2,39 +2,24 @@ define([
  'backbone',
  'js/models/navnode',
  ], function(Backbone, NavNode) {
-	var Structure = Backbone.Model.extend({
-		nodeList: [],
-		
-		defaults : {
-			ready: false
-		},
+	var Structure = Backbone.Collection.extend({
+		model: NavNode,
+		url: 'data/structure.json',
+		attributes: {},
 		
 		initialize : function() {
-			
+			this.on('change:open', this.onOpenNodeChanged)
+			this.on('reset', this.onReset)
 		},
-
-		fetch : function() {
-			var structure = this;
-			
-			$.ajax('data/structure.json', {
-				success : function(structureData, textStatus, jqXHR) {
-					structureData.data.forEach(function(nodeData) {
-						navNode = new NavNode(nodeData);
-						structure.listenTo(navNode, 'change:open', structure.onOpenNodeChanged);
-						
-						if (navNode.get('open')) {
-							structure.set('currentNode', navNode);
-						}				
-						
-						structure.nodeList.push(navNode);
-					});
-					
-					structure.set('ready', true);
-				},
-				error : function(xhr, status, error) {
-					alert(error);
+		
+		onReset : function(structure, options) {
+			this.forEach(function(node) {
+				if (node.get('open')) {
+					structure.set('currentNode', node);
 				}
 			});
+			
+			structure.set('ready', true);
 		},
 		
 		onOpenNodeChanged : function(changedNode, opened, options) {
@@ -50,29 +35,28 @@ define([
 			}
 		},
 		
-		nodeCount : function() {
-			var count = 0;
-			
-			this.nodeList.forEach(function(node) {
-				if (!node.isSpacer()) {
-					count++;
-				}
-			});
-			
-			return count;
-		},
+		set: Backbone.Model.prototype.set,
+		get: Backbone.Model.prototype.get,
+		_validate: Backbone.Model.prototype._validate,
 		
-		spacerCount : function() {
-			var count = 0;
-			
-			this.nodeList.forEach(function(node) {
-				if (node.isSpacer()) {
-					count++;
-				}
-			});
-			
-			return count;
-		},
+		/**
+	    set: function(prop, value) {
+	        if (value === undefined) {
+	            return this.attributes[prop]
+	        } else {
+	            this._attributes[prop] = value;
+	            this.trigger('change:' + prop, value);
+	        }
+	    },
+		
+	    get: function(prop, value) {
+	        if (value === undefined) {
+	            return this.attributes[prop]
+	        } else {
+	            this._attributes[prop] = value;
+	            this.trigger('change:' + prop, value);
+	        }
+	    },**/
 	});
 
 	return Structure;

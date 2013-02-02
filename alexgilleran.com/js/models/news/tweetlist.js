@@ -15,10 +15,14 @@ define([
 		fetch : function() {
 			tweetList = this;
 			
-			return $.getJSON(this.url, function(data, status, jqXhr) {
+			return $.ajax({
+				dataType: "jsonp",
+				url: this.url,
+				cache: true,
+				success: function(data, status, jqXhr) {
 					tweetList.update(data.results);
 				}
-			);
+			});
 		}
 		
 	});

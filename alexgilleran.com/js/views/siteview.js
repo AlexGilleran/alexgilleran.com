@@ -43,7 +43,9 @@ define([
 
 		fitWindow : function() {
 			var generalMargin = this.$el.position().left;
-			this.navView.fitWindow();
+			//this.navView.fitWindow();
+			
+			this.navView.resizeNavButtons();
 			
 			var contentWidth = this.$el.innerWidth() - this.navView.$el.outerWidth(true)- generalMargin; //- this.asideView.$el.outerWidth(true) ;
 			
