@@ -4,9 +4,9 @@ define([
   'backbone',
   'js/views/content/contentview',
   'js/views/navigation/navview',   
-  'js/views/aside/socialasideview',   
+  'js/views/aside/newsasideview',   
   'js/views/navigation/externallinksview',   
-], function($, _, Backbone, ContentView, NavView, SocialAsideView, ExternalLinksView){
+], function($, _, Backbone, ContentView, NavView, NewsAsideView, ExternalLinksView){
 	var SiteView = Backbone.View.extend({
   		el: $('body'),
 		
@@ -34,7 +34,7 @@ define([
 			var AsideView = this.model.get('currentNode').get('aside');
 			
 			if (!AsideView) {
-				AsideView = SocialAsideView;
+				AsideView = NewsAsideView;
 			}
 			
 			if (this.AsideView != AsideView) {

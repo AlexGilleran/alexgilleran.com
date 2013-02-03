@@ -7,7 +7,13 @@ define(['backbone'], function(Backbone) {
 				var navNode = this;
 				require(['text!' + navNode.get('theme').iconTemplateUrl], function(iconTemplate) {
 					navNode.get('theme').iconTemplate = Handlebars.compile(iconTemplate);
-					navNode.set('ready', true)
+					
+					if (!window.icons) {
+						window.icons = {};
+					}
+					window.icons[navNode.get('id')] = navNode.get('theme').iconTemplate;
+					
+					navNode.set('ready', true);
 				});
 			}
 		},

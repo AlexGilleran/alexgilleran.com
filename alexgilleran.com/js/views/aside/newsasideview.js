@@ -4,12 +4,16 @@ define([
   'backbone',
   'handlebars',
   'js/models/news/news',
+  'js/views/aside/news/tweetview',
+  'js/views/aside/news/githubeventview',
   'text!templates/asideframe.html',
-  'text!templates/newsitem.html'
-], function($, _, Backbone, Handlebars, News, AsideFrameTemplate, NewsItemTemplate){
-	var SocialAsideView = Backbone.View.extend({
-		newsItemTemplate : Handlebars.compile(NewsItemTemplate),
+], function($, _, Backbone, Handlebars, News, TweetView, GithubEventView, AsideFrameTemplate){
+	var NewsAsideView = Backbone.View.extend({
 		frameTemplate : Handlebars.compile(AsideFrameTemplate),
+		itemViews : {
+			'twitter' : TweetView,
+			'github' : GithubEventView
+		},
 		model: new News(),
 
 		initialize : function() {
@@ -37,30 +41,32 @@ define([
 				axis: 'y'
 			});
 			
-			var socialAsideView = this;	
+			var newsAsideView = this;	
 			this.$el.find('.fade-wrapper').fadeIn(500, function() {
-				socialAsideView.scrollDiv.tinyscrollbar_update();
+				newsAsideView.scrollDiv.tinyscrollbar_update();
 			});
 		},
 		
 		renderList : function() {
-			this.model.forEach(function(newsItem) {
-				this.addNewsItem(newsItem);
-			}, this);
+			var upperBound = 10;
+			if (this.model.length < 10) {
+				upperBound = this.model.length;
+			}
+			
+			for (i=0; i < upperBound; i++) {
+				this.addNewsItem(this.model.at(i));
+			}
 		},
 		
-		addNewsItem : function(newsItem) {
-			var newsItemHtml = this.newsItemTemplate({
-				source: newsItem.source(),
-				text: newsItem.text(),
-				date: newsItem.date()
-			});
+		addNewsItem : function(newsItem) {			
+			var newsItemView = new this.itemViews[newsItem.get('source')]({model: newsItem});
 			
-			this.$el.find('.overview').append(newsItemHtml);
-			
-			this.scrollDiv.tinyscrollbar_update();
+			if (newsItemView.display) {
+				this.$el.find('.overview').append(newsItemView.$el);
+				this.scrollDiv.tinyscrollbar_update();
+			}			
 		}
   	});
   	
-  	return SocialAsideView;
+  	return NewsAsideView;
 });

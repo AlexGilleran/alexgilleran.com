@@ -1,6 +1,6 @@
 [
     {
-        "id": "nav-about-me",
+        "id": "about-me",
         "label": "about me",
         "url": "about_me",
         "contentViewUrl": "js/views/content/blurbview",
@@ -21,7 +21,7 @@
         }
     },
     {
-        "id": "nav-projects",
+        "id": "projects",
         "label": "projects",
         "url": "projects",
         "contentViewUrl": "js/views/project/projectlistview",
@@ -38,7 +38,7 @@
         }
     },
     {
-        "id": "nav-blog",
+        "id": "blog",
         "label": "blog",
         "url": "blog",
         "contentViewUrl": "js/views/content/blurbview",

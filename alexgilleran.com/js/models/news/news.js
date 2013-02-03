@@ -35,9 +35,9 @@ define([
 		},
 		
 		comparator : function(newsItem1, newsItem2) {
-			if (newsItem1.date() > newsItem2.date()) {
+			if (newsItem1.get('date') > newsItem2.get('date')) {
 				return -1;
-			} else if (newsItem1.date() < newsItem2.date()) {
+			} else if (newsItem1.get('date') < newsItem2.get('date')) {
 				return 1;
 			} else {
 				return 0;

@@ -1,6 +1,6 @@
 [ 	
 	{
-        "id": "nav-linkedin",
+        "id": "linkedin",
         "label": "linkedin",
         "url": "http: //www.linkedin.com/profile/view?id=82976163",
         "theme": {
@@ -13,7 +13,7 @@
         }
     },
     {
-        "id": "nav-twitter",
+        "id": "twitter",
         "label": "twitter",
         "url": "http: //www.twitter.com/AlexGilleran",
         "theme": {
@@ -26,7 +26,7 @@
         }
     },
     {
-        "id": "nav-github",
+        "id": "github",
         "label": "github",
         "url": "http: //github.com/AlexGilleran",
         "theme": {

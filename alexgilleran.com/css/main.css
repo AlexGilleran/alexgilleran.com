@@ -130,7 +130,7 @@ h3 {
 }
 
 .header-text {
-	color: #AAA;
+	color: #888888;
 	font-size: 3em;
 	height: 3em;
 	margin-top: auto;
@@ -228,6 +228,7 @@ h3 {
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 0.7em;
+	vertical-align: bottom;
 }
 
 .nav-link-text-wrapper {
@@ -236,6 +237,7 @@ h3 {
 	left: 0;
 	right: 0;
 	text-align: center;
+	vertical-align: bottom;
 }
 
 .nav-link-icon {
@@ -289,13 +291,13 @@ h3 {
     z-index: -1;
 }
 
-.content-text .viewport {
+.viewport {
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
 	overflow: hidden;
 }
 
-.content-text .scrollbar {
+.scrollbar {
 	position: relative;
 	float: right;
 	width: 10px;
@@ -303,13 +305,15 @@ h3 {
 	height: 100%;
 	z-index: 2;
 }
-.content-text .track {
+
+.track {
 	height: 100%;
 	width: 10px;
 	position: absolute;
 	padding: 0;
 }
-.content-text .thumb {
+
+.thumb {
 	height: 0px;
 	cursor: pointer;
 	overflow: hidden;
@@ -319,7 +323,7 @@ h3 {
 	background: none;
 }
 
-.content-text .thumb .end {
+.thumb .end {
 	overflow: hidden;
 	position: absolute;
 	top: 0; right: 0; left: 0; bottom: 5px;
@@ -327,7 +331,7 @@ h3 {
 	opacity: 0.6;
 }
 
-.content-text .disable {
+.disable {
 	display: none;
 }
 
@@ -436,6 +440,69 @@ h3 {
     right: 0;
 }
 
+.aside-text .overview {
+	margin-top: -0.5em;
+}
+
+
+.news-item {
+	float: left;
+	width: 100%;
+	padding-top: 0.8em;
+	padding-bottom: 0.2em;
+	border-bottom: 1px solid rgba(100, 100, 100, 0.5);
+}
+
+.news-source-logo {
+	display: inline-block;
+	height: 2em;
+	width: 2em;
+	margin: 0.2em 0.5em 0.3em 1em;
+	float: right;
+}
+
+.source-github .news-source-logo {
+	height: 2.5em;
+	width: 2.5em;
+	margin: 0.0em 0.3em 0.0em 1em;
+}
+
+.news-text {
+
+}
+
+.news-source {
+	margin-top: 0.8em;
+	font-size: 0.8em;
+	float: right;
+	font-weight: normal;
+}
+
+.news-appendices {
+	margin-top: 0.8em;
+	padding-left: 2.5em;
+	font-size: 0.8em;
+	clear: left;
+	margin-bottom: 0;    
+}
+
+.news-appendix-link {
+	color: #FFFFFF !important;
+	font-weight: normal;
+}
+
+.news-appendix-link:hover {
+	text-decoration: underline;
+}
+
+.aside-social-color, .aside-social a {
+	color: #888888;
+}
+
+.aside-social-bgcolor {
+	background-color: #AAAAAA;
+}
+
 .glass:after {
 	box-shadow: 3px 3px 3px 0 rgba(255, 255, 255, 0.1) inset, -3px -3px 3px 0 rgba(0, 0, 0, 0.3) inset;
 	/**border: 2px solid rgba(255, 255, 255, 0.1);**
@@ -456,10 +523,6 @@ h3 {
 	background: -o-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
 	background: -ms-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
   background: linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));**/
-}
-
-.aside-social-color {
-	color: #888888;
 }
 
 
