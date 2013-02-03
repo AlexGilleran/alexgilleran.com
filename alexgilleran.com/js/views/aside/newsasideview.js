@@ -30,6 +30,10 @@ define([
 			});
 		},
 		
+		onResize : function() {
+			$('.aside-text').tinyscrollbar_update();
+		},
+		
 		render : function() {
 			this.$el.html(this.frameTemplate({
 				'aside-id' : 'aside-social',
@@ -40,6 +44,9 @@ define([
 			this.scrollDiv.tinyscrollbar({
 				axis: 'y'
 			});
+			
+			
+			$(window).resize(this.onResize);
 			
 			var newsAsideView = this;	
 			this.$el.find('.fade-wrapper').fadeIn(500, function() {
