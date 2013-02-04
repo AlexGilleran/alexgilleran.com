@@ -25,7 +25,7 @@ define(['backbone'], function(Backbone) {
 
 		target : function() {
 			// If there's no content view for an element, open the url in a new window/tab
-			if (!this.get('contentView')) {
+			if (!this.get('contentViewUrl')) {
 				return '_blank'
 			} else {
 				return '_self';
