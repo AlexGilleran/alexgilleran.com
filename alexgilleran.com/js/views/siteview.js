@@ -26,7 +26,8 @@ define([
 			this.navView = new NavView({el: $('#main-nav'), model: this.model});
 			this.contentView = new ContentView({el: $('#content-main'), model: this.model});
 			this.externalLinksView = new ExternalLinksView({el: $('#external-links')});
-						
+			this.renderAsideView();
+			
 			this.fitWindow();
 		},
 		

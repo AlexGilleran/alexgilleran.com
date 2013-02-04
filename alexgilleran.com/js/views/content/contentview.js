@@ -14,18 +14,22 @@ define([
 			this.fitWindow = _.bind(this.fitWindow, this);
 			$(window).resize(this.fitWindow);
 			
-			this.listenTo(this.model, 'change:currentNode', this.openNode);
+			this.listenTo(this.model, 'change:open', this.openCurrentNode);
 			
-			this.openNode();
+			this.openCurrentNode();
 		},
 		
-		openNode : function() {
+		openCurrentNode : function() {
+			this.openNode(this.model.get('currentNode'));
+		},
+		
+		openNode : function(node) {
 			this.stopListening(null, 'change:ready', this.render);
-						
-			if (this.model.get('currentNode').get('ready')) {
+			
+			if (node.get('ready')) {
 				this.render();
 			} else {
-				this.listenTo(this.model.get('currentNode'), 'change:ready', this.render);
+				this.listenTo(node, 'change:ready', this.render);
 			}
 		},
 		

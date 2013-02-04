@@ -22,8 +22,10 @@ define([
 			var navList = $('#nav-list');
 
 			this.model.forEach(function(navnode) {
-				var navLinkView = new NavLinkView({model: navnode, attributes: {'class': 'nav-list-item'}, 'LinkTemplate': LinkTemplate});
-				navList.append(navLinkView.$el);
+				if (!navnode.get('hidden')) {
+					var navLinkView = new NavLinkView({model: navnode, attributes: {'class': 'nav-list-item'}, 'LinkTemplate': LinkTemplate});
+					navList.append(navLinkView.$el);
+				}
 			}, this);
 
 			this.resizeNavButtons();

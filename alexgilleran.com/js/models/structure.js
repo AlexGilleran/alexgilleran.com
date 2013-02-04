@@ -6,20 +6,34 @@ define([
 		model: NavNode,
 		url: 'data/structure.json',
 		attributes: {},
+		nodeDictionary: {},
 		
 		initialize : function() {
 			this.on('change:open', this.onOpenNodeChanged)
 			this.on('reset', this.onReset)
+			
+			this.setCurrentNodeById = _.bind(this.setCurrentNodeById, this);
 		},
 		
 		onReset : function(structure, options) {
 			this.forEach(function(node) {
-				if (node.get('open')) {
-					structure.set('currentNode', node);
-				}
-			});
+				this.nodeDictionary[node.get('id')] = node;
+			}, this);
 			
 			structure.set('structureReady', true);
+		},
+		
+		setCurrentNodeById : function(id) {
+			if (this.get('structureReady')) {
+				if (!this.nodeDictionary[id]) {
+					id = 'notfound'
+				}
+				
+				this.set('currentNode', this.nodeDictionary[id]);
+				this.nodeDictionary[id].set('open', true);
+			} else {
+				this.once('change:structureReady', function() {this.setCurrentNodeById(id)}, this);
+			}
 		},
 		
 		onOpenNodeChanged : function(changedNode, opened, options) {

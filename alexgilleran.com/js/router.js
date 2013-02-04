@@ -7,18 +7,30 @@ define([
 ],function($, _, Backbone, SiteView, Structure){
 	var AppRouter = Backbone.Router.extend({
 		routes : {
-			// Default
-			'*actions' : 'defaultAction'
+			':nodeId' : 'openNode',
+			'*actions': 'openDefault'
 		},
 		
-		defaultAction : function() {
-			structure = new Structure();
-			structure.fetch({error: function(error){alert(error);}});
+		openDefault : function() {
+			this.structure.setCurrentNodeById('about-me');	
+		},
 		
-			$(document).ready(function() {
-				SiteView = new SiteView({model : structure});
-			});
+		openNode : function(nodeId) {
+			if (nodeId) {
+				this.structure.setCurrentNodeById(nodeId);
+			} else {
+				openDefault();
+			}
+		},
+		
+		initialize : function() {
+			this.structure = new Structure();
 			
+			var router = this;
+			this.structure.fetch({error: function(error){alert(error);}})
+			.done(function() {
+				router.siteView = new SiteView({model : router.structure});
+			});
 		}
 	});
 

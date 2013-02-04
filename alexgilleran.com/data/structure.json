@@ -10,7 +10,6 @@
                 "urlRoot": "data/aboutme.md"
             }
         },
-        "open": true,
         "theme": {
             "iconTemplateUrl": "templates/icons/about_me_icon.svg",
             "color": {
@@ -56,5 +55,26 @@
                 "b": 48
             }
         }
+	},
+    {
+        "id": "notfound",
+        "label": "404",
+        "url": "404",
+        "contentViewUrl": "js/views/content/blurbview",
+        "model": {
+            "url": "js/models/blurb",
+            "attributes": {
+                "urlRoot": "data/blogpark.md"
+            }
+        },
+        "theme": {
+            "iconTemplateUrl": "templates/icons/error_icon.svg",
+            "color": {
+                "r": 255,
+                "g": 0,
+                "b": 0
+            }
+        },
+        "hidden": true
 	}
 ]

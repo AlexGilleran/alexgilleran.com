@@ -18,7 +18,6 @@ define([
 		
 		initialize : function() {
 			this.linkTemplate = Handlebars.compile(this.options.LinkTemplate);
-			//_.bindAll(this);
 			
 			if (this.model.get('theme')) {
 				this.openColor = $color(this.model.get('theme').color.r, this.model.get('theme').color.g, this.model.get('theme').color.b);
@@ -35,7 +34,7 @@ define([
 			
 			var linkHtml = this.linkTemplate({
 				'label' : model.get('label'),
-				'url' : model.get('url'),
+				'url' : '#/' + model.get('url'),
 				'id' : model.get('id'),
 				'icon-url' : model.get('theme').icon,
 				'target' : model.target()
@@ -69,6 +68,8 @@ define([
 				iconSvg = svgTemplate({r:255,b:255,g:255,a:1,'class':'nav-link-icon'});
 				this.$el.find('.nav-link').append(iconSvg);
 			}
+			
+			this.setOpenStyling();
 		},
 		
 		onClick : function(event) {

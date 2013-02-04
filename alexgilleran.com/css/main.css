@@ -211,16 +211,15 @@ h3 {
 }
 
 .section-header-text {
-	margin: 0;
-	padding: 0.5em;
-	padding-top: 0.2em;
+	margin: 20px;
+	margin-top: 0.2em;
 	font-size: 3em;
     text-align: left;
 }
 
 .section-text {
 	position: absolute;
-	top: 4.9em; bottom: 0; left: 0; right: 0;
+	top: 5em; bottom: 0; left: 0; right: 0;
 }
 
 #nav-list {
@@ -406,19 +405,19 @@ h3 {
 }
 
 .project {
-	margin-bottom: 15px; 
+	margin-bottom: 0.3em; 
 }
 
 .project-meta {
 	float: left;
-	margin-top: 0.7em;
+	margin-top: 0.2em;
 }
 
 .project-icon {
 	float: left;
 	width: 6em;
-	height: 6em;
-	margin: 1.3em;
+	height: 6em;  
+	margin: 0.7em 1.3em 1.3em;
 	border-radius: 5px;
    /**border: 1px solid #444444;**/
 }
@@ -465,7 +464,7 @@ h3 {
 }
 
 .aside-text .overview {
-	margin-top: -0.5em;
+	margin-top: -0.8em;
 }
 
 
