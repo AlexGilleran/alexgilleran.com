@@ -2,7 +2,7 @@
     {
         "id": "about-me",
         "label": "about me",
-        "url": "about_me",
+        "url": "about-me",
         "contentViewUrl": "js/views/content/blurbview",
         "model": {
             "url": "js/models/blurb",
