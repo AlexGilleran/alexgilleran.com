@@ -9,8 +9,21 @@ define([
 		url : 'https://api.github.com/users/AlexGilleran/events/public',
 		
 		initialize : function() {
-			this.fetch = _.bind(this.fetch, this);
 		},
+		
+		
+		fetch : function() {
+			eventList = this;
+			
+			return $.ajax({
+				dataType: "jsonp",
+				url: this.url,
+				cache: true,
+				success: function(data, status, jqXhr) {
+					eventList.update(data.data);
+				}
+			});
+		}
 		
 	});
 	

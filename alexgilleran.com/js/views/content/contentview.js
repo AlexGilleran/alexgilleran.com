@@ -56,11 +56,13 @@ define([
 				scrollDiv.tinyscrollbar({
 					axis: 'y'
 				});
-				
+								
 				contentFrame.nodeView = new View({
 					el: contentFrame.$el.find('.overview'), 
 					model: new Model(contentFrame.model.get('currentNode').get('model')['attributes'])
 				});
+				
+				contentFrame.listenTo(contentFrame.nodeView, 'sizeChanged', contentFrame.fitWindow);
 				
 				var fadeWrappers = contentFrame.$el.find('.fade-wrapper');
 				contentFrame.changeBackground();

@@ -39,7 +39,22 @@ define([
 					'event-description' : eventDescFunction(eventView),
 					'repo-url' : eventView.model.get('url'),
 					'repo-name' : eventView.model.get('repo').name.split('/')[1],
-					'commits': eventView.model.get('payload').commits
+					'commits': function() {
+						if (eventView.model.get('payload').commits) {
+							var commits = [];
+							
+							eventView.model.get('payload').commits.forEach(function(commit) {
+								commits.push({
+									message: commit.message,
+									url: eventView.model.get('url') + '/' + commit.sha
+								});
+							});
+							
+							return commits;
+						}
+						
+						return null;
+					}()
 				});
 			} else {
 				return '';

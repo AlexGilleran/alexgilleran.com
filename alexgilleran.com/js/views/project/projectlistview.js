@@ -45,6 +45,8 @@ define([
 				if (i < this.model.length - 1) {
 					this.$el.append('<hr />');
 				}
+				
+				this.trigger('sizeChanged');
 			}
 		},
   	});

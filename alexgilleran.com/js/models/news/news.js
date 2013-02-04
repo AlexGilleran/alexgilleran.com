@@ -28,7 +28,7 @@ define([
 			var fetchList = [];
 			
 			this.sources.forEach(function(source) {
-				fetchList.push(source.fetch({update: true}));
+				fetchList.push(source.fetch({update: true, 'dataType': 'jsonp'}));
 			}, this);
 			
 			return $.when.apply(null, fetchList);

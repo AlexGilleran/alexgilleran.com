@@ -6,7 +6,7 @@ define([
 ], function($, _, Backbone, Tweet) {
 	var TweetList = Backbone.Collection.extend({
 		model: Tweet,
-		url : 'http://search.twitter.com/search.json?rpp=5&q=from:AlexGilleran&callback=?',
+		url : 'http://search.twitter.com/search.json?q=from:AlexGilleran',
 		
 		initialize : function() {
 			
