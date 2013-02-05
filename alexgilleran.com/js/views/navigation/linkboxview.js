@@ -34,7 +34,7 @@ define([
 			
 			var linkHtml = this.linkTemplate({
 				'label' : model.get('label'),
-				'url' : '#/' + model.get('url'),
+				'url' : model.get('url'),
 				'id' : model.get('id'),
 				'icon-url' : model.get('theme').icon,
 				'target' : model.target()

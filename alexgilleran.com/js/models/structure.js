@@ -26,7 +26,7 @@ define([
 		setCurrentNodeById : function(id) {
 			if (this.get('structureReady')) {
 				if (!this.nodeDictionary[id]) {
-					id = 'notfound'
+					id = 'error'
 				}
 				
 				this.set('currentNode', this.nodeDictionary[id]);

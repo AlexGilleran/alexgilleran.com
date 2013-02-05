@@ -2,7 +2,7 @@
     {
         "id": "about-me",
         "label": "about me",
-        "url": "about-me",
+        "url": "#/about-me",
         "contentViewUrl": "js/views/content/blurbview",
         "model": {
             "url": "js/models/blurb",
@@ -22,7 +22,7 @@
     {
         "id": "projects",
         "label": "projects",
-        "url": "projects",
+        "url": "#/projects",
         "contentViewUrl": "js/views/project/projectlistview",
         "model": {
             "url": "js/models/projectlist"
@@ -39,7 +39,7 @@
     {
         "id": "blog",
         "label": "blog",
-        "url": "blog",
+        "url": "#/blog",
         "contentViewUrl": "js/views/content/blurbview",
         "model": {
             "url": "js/models/blurb",
@@ -57,14 +57,14 @@
         }
 	},
     {
-        "id": "notfound",
-        "label": "404",
-        "url": "404",
+        "id": "error",
+        "label": "Error",
+        "url": "#/error",
         "contentViewUrl": "js/views/content/blurbview",
         "model": {
             "url": "js/models/blurb",
             "attributes": {
-                "urlRoot": "data/blogpark.md"
+                "urlRoot": "data/error.md"
             }
         },
         "theme": {
