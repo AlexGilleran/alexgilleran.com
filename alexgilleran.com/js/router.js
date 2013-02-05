@@ -24,13 +24,18 @@ define([
 		},
 		
 		trackPageView: function() {
-			var url = Backbone.history.getFragment();
-			return _gaq.push(['_trackPageview', "/" + url]);
+			if (this.firstRoute) {
+				this.firstRoute = false;
+			} else {
+				var url = Backbone.history.getFragment();
+				return _gaq.push(['_trackPageview', "/" + url]);
+			}
 		},
 		
 		initialize : function() {
+			this.firstRoute = true;
 			this.structure = new Structure();
-		    this.on('all', this.trackPageView);
+		    this.on('route', this.trackPageView, this);
 			
 			var router = this;
 			this.structure.fetch({error: function(error){alert(error);}})
