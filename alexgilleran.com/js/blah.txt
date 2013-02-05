@@ -1,0 +1,3 @@
+Error: ERROR: module path does not exist: e:/Workspaces/alexgilleran.com/alexgilleran.com/main.js for module named: main. Path is relative to: e:/Workspaces/alexgilleran.com/alexgilleran.com/js
+    at build._run.prim.start.config.modules.(anonymous function)._buildPath (e:\Workspaces\alexgilleran.com\node_modules\requirejs\bin\r.js:22503:35)
+

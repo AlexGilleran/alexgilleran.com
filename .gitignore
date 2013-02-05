@@ -1,3 +1,6 @@
+appdirectory-build
+node_modules
+
 *.rbc
 *.sassc
 .sass-cache
