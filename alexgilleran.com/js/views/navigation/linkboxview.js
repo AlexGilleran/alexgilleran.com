@@ -5,7 +5,7 @@ define([
 	'jquery.color',
 	'text!templates/spacer.html',
 	'text!templates/nav-link.css'
-], function($, Backbone, Handlebars, $color, SpacerTemplate, CSSTemplate){
+], function($, Backbone, Handlebars, $Color, SpacerTemplate, CSSTemplate){
 	var NavLinkView = Backbone.View.extend({
 		spacerTemplate : Handlebars.compile(SpacerTemplate),
 		cssTemplate : Handlebars.compile(CSSTemplate),
@@ -20,8 +20,8 @@ define([
 			this.linkTemplate = Handlebars.compile(this.options.LinkTemplate);
 			
 			if (this.model.get('theme')) {
-				this.openColor = $color(this.model.get('theme').color.r, this.model.get('theme').color.g, this.model.get('theme').color.b);
-				this.invisible = $color(255, 255, 255, 0);
+				this.openColor = $.Color(this.model.get('theme').color.r, this.model.get('theme').color.g, this.model.get('theme').color.b);
+				this.invisible = $.Color(255, 255, 255, 0);
 			}
 		
 			this.listenTo(this.model, 'change:open', this.setOpenStyling);

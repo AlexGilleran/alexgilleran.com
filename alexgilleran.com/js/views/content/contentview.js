@@ -87,7 +87,7 @@ define([
 		
 		changeBackground : function() {
 			var themeColor = this.model.get('currentNode').get('theme').color;
-			var color = $color(themeColor.r, themeColor.g, themeColor.b, 0.2);
+			var color = $.Color(themeColor.r, themeColor.g, themeColor.b, 0.2);
 			
 			this.$el.animate({backgroundColor : color}, 500);
 		},
