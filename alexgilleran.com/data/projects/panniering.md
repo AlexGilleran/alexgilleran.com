@@ -1,1 +1,5 @@
-Panniering is a project.
+I'd dreamed of riding a motorcycle around Europe ever since I'd been able to ride a motorcycle. I'd been backpacking before but I'd read ride reports on advrider.com and get this wistful longing for that kind of freedom.
+
+Fortunately for me, IBM allows unpaid leave-of-absences up to a year... after a few years of working there I had enough money saved, I had the chance to take the time off work. It was now or never. So I put my bike on a ship, flew over to meet it and spent the next 6 months riding alone from town to town. During my time I met a bunch of people, dealt with a bunch of setbacks (including being unable to walk for three weeks) and had a great time.
+
+During the trip I maintained a blog with my reflections and photos, mainly so my mum knew what I was up to, but it's also fun to look at it from time to time for nostalgia. You learn a great deal by travelling alone - about yourself first and foremost, but also about being organised and getting things done - there's no one else to figure out the paperwork for importing a motorcycle or figure out the best way through Romania, it's all down to you.

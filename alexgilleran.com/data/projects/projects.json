@@ -6,19 +6,21 @@
 		"image" : "img/projects/icesoap-opt.svg",
 		"url" : "code.google.com/p/icesoap",
 		"descriptionUrl" : "data/projects/icesoap.md"
-	} , {
-		"title" : "Panniering",
-		"subtitle" : "Around Europe by Motorcycle",
-		"technologies": ["Kawasaki Versys", "Petrol", "Spanners"],
-		"image" : "img/projects/panniering.jpg",
-		"url" : "panniering.com",
-		"descriptionUrl" : "data/projects/panniering.md"
-	} , {
+	}, 
+	{
 		"title" : "alexgilleran.com",
 		"subtitle" : "My Little Corner of the Information Superhighway",
 		"technologies": ["HTML5", "CSS3", "jQuery", "Backbone", "Handlebars", "RequireJS", "Markdown"],
 		"image" : "img/logo.svg",
 		"url" : "alexgilleran.com",
 		"descriptionUrl" : "data/projects/alexgilleran.com.md"
+	},
+	{
+		"title" : "Panniering",
+		"subtitle" : "Around Europe by Motorcycle",
+		"technologies": ["Kawasaki Versys", "Petrol", "Spanners"],
+		"image" : "img/projects/panniering.jpg",
+		"url" : "panniering.com",
+		"descriptionUrl" : "data/projects/panniering.md"
 	}]
 }
