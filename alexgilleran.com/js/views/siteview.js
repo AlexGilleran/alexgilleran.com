@@ -2,11 +2,12 @@ define([
   'jquery',     
   'underscore', 
   'backbone',
+  'js/models/externallinks', 
   'js/views/content/contentview',
   'js/views/navigation/navview',   
   'js/views/aside/newsasideview',   
-  'js/views/navigation/externallinksview',   
-], function($, _, Backbone, ContentView, NavView, NewsAsideView, ExternalLinksView){
+  'js/views/navigation/headerlinksview',   
+], function($, _, Backbone, ExternalLinks, ContentView, NavView, NewsAsideView, HeaderLinksView){
 	var SiteView = Backbone.View.extend({
   		el: $('body'),
 		
@@ -25,7 +26,19 @@ define([
 		render: function() {
 			this.navView = new NavView({el: $('#main-nav'), model: this.model});
 			this.contentView = new ContentView({el: $('#content-main'), model: this.model});
-			this.externalLinksView = new ExternalLinksView({el: $('#external-links')});
+			
+			var headerLinks = new ExternalLinks();
+			
+			
+			if ($(window).width() <= 640) {
+				headerLinks.add(this.model.models);
+			}
+			
+			this.HeaderLinksView = new HeaderLinksView({
+				el : $('#external-links'), 
+				model : headerLinks
+			});
+			
 			this.renderAsideView();
 			
 			this.fitWindow();
@@ -46,11 +59,13 @@ define([
 
 		fitWindow : function() {
 			var generalMargin = this.$el.position().left;
-			//this.navView.fitWindow();
 			
 			this.navView.resizeNavButtons();
 			
-			var contentWidth = this.$el.innerWidth() - this.navView.$el.outerWidth(true)- generalMargin; //- this.asideView.$el.outerWidth(true) ;
+			var contentWidth = this.$el.innerWidth();
+			if ($(window).width() > 640) {
+				contentWidth -= this.navView.$el.outerWidth(true) - generalMargin;
+			}
 			
 			this.$el.find('#content').width(contentWidth);			
 			this.$el.find('#content-aside').css('left', $('#content-main').width() + generalMargin + 2);

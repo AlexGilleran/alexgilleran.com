@@ -423,14 +423,15 @@ h3 {
 
 .project-meta {
 	float: left;   
-	margin-top: 0.8em;
+	margin-top: 0.7em;    
+	margin-bottom: 0.7em;
 }
 
 .project-icon { 
 	border-radius: 5px;
     float: left;
-    height: 4.5em;
-    margin: 0.8em 1em 0.8em 0.5em;
+    height: 4.5em;    
+    margin: 0 1em 0 0.5em;
     width: 4.5em;
 }
 
@@ -443,13 +444,12 @@ h3 {
 }
 
 .project-subtitle {
-	margin: 0.1em 0;
-	float: left;
+	margin: 0;
 }
 
 .project-technologies {
-	clear: both;
-	margin-top: 0.4em;
+	display: block;
+	margin-top: 0.1em;
 	font-style: italic;
 }
 
@@ -513,7 +513,7 @@ h3 {
 }
 
 .news-text {
-	font-size: small;
+	font-size: medium;
 }
 
 .news-source {
@@ -680,8 +680,23 @@ h3 {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
+@media only screen and (max-width: 640px) {
+   
+    #content-aside {
+    	display: none;
+    }
+    
+    #content-main {
+    	width: 100%;
+    }
+    
+    .header-text {
+    	display: none;
+    }
+    
+    #main-nav {
+    	display: none;
+    }
 }
 
 @media print,

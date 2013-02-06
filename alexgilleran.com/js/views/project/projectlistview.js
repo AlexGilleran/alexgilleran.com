@@ -48,7 +48,6 @@ define([
 				}));
 				
 				var $descriptionDiv = this.$el.find('.project-description').last();
-				$descriptionDiv.attr('natural-height', $descriptionDiv.height());
 				$descriptionDiv.height($descriptionDiv.find('p').first().outerHeight(true));
 				this.trigger('sizeChanged');
 			}
@@ -69,7 +68,11 @@ define([
 				$descriptionDiv.parent().find('.project-expander').hide();
 				$descriptionDiv.parent().find('.project-collapser').show();
 				$descriptionDiv.attr('expanded', 'true');
-				heightAfter = $descriptionDiv.attr('natural-height');
+				
+				heightAfter = 0;
+				$descriptionDiv.children().each(function() {
+					heightAfter = heightAfter + $(this).outerHeight(true);
+				});
 			}
 			
 			$descriptionDiv.animate(

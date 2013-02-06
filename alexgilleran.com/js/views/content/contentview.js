@@ -38,7 +38,7 @@ define([
 					'r': contentFrame.model.get('currentNode').get('theme').color.r,
 					'g': contentFrame.model.get('currentNode').get('theme').color.g,
 					'b': contentFrame.model.get('currentNode').get('theme').color.b,
-					'a': '0.1',
+					'a': '0.05',
 				});
 				
 				var newContent = contentFrame.contentTemplate({
