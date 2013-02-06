@@ -46,7 +46,7 @@ define([
 							eventView.model.get('payload').commits.forEach(function(commit) {
 								commits.push({
 									message: commit.message,
-									url: eventView.model.get('url') + '/' + commit.sha
+									url: eventView.model.get('url') + '/commits/' + commit.sha
 								});
 							});
 							

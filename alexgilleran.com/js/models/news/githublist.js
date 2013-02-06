@@ -4,7 +4,7 @@ define([
 	'backbone',
 	'js/models/news/githubevent'
 ], function($, _, Backbone, GitHubEvent) {
-	var TweetList = Backbone.Collection.extend({
+	var GithubList = Backbone.Collection.extend({
 		model: GitHubEvent,
 		url : 'https://api.github.com/users/AlexGilleran/events/public',
 		
@@ -20,13 +20,15 @@ define([
 				url: this.url,
 				cache: true,
 				success: function(data, status, jqXhr) {
-					eventList.update(data.data);
+					if (Array.isArray(data.data)) {
+						eventList.update(data.data);
+					}
 				}
 			});
 		}
 		
 	});
 	
-	return TweetList;
+	return GithubList;
 })
 

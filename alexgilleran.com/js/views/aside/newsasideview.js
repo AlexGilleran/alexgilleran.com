@@ -24,7 +24,7 @@ define([
 			var asideView = this;
 			
 			this.model.fetch()
-			.done(this.renderList)
+			.always(this.renderList)
 			.done(function() {
 				asideView.listenTo(asideView.model, 'add', asideView.addNewsItem)
 			});
@@ -44,7 +44,6 @@ define([
 			this.scrollDiv.tinyscrollbar({
 				axis: 'y'
 			});
-			
 			
 			$(window).resize(this.onResize);
 			

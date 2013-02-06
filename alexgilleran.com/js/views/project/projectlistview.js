@@ -10,6 +10,11 @@ define([
 		projectTemplate : Handlebars.compile(ProjectTemplate),
 		converter : new Showdown.converter(),
 		
+		events : {
+			'click .project-expander' : 'onExpanderClicked',
+			'click .project-collapser' : 'onExpanderClicked'
+		},
+		
 		initialize : function () {
 			_.bindAll(this);
 						
@@ -42,13 +47,47 @@ define([
 					technologies : technologies()
 				}));
 				
-				if (i < this.model.length - 1) {
-					this.$el.append('<hr />');
-				}
-				
+				var $descriptionDiv = this.$el.find('.project-description').last();
+				$descriptionDiv.attr('natural-height', $descriptionDiv.height());
+				$descriptionDiv.height($descriptionDiv.find('p').first().outerHeight(true));
 				this.trigger('sizeChanged');
 			}
 		},
+		
+		toggleExpansion : function($descriptionDiv) {
+			var view = this;
+			
+			var heightBefore = $descriptionDiv.height(); 
+			var heightAfter;
+			
+			if ($descriptionDiv.attr('expanded')) {
+				$descriptionDiv.parent().find('.project-expander').show();
+				$descriptionDiv.parent().find('.project-collapser').hide();
+				$descriptionDiv.attr('expanded', '');
+				heightAfter = $descriptionDiv.find('p').first().outerHeight(true);
+			} else {
+				$descriptionDiv.parent().find('.project-expander').hide();
+				$descriptionDiv.parent().find('.project-collapser').show();
+				$descriptionDiv.attr('expanded', 'true');
+				heightAfter = $descriptionDiv.attr('natural-height');
+			}
+			
+			$descriptionDiv.animate(
+				{'height' : heightAfter},
+				{duration: 500, complete: function() {
+					view.trigger('sizeChanged', heightBefore - heightAfter);
+				}
+			});
+			
+		},
+		
+		onExpanderClicked : function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			
+			$target = $(event.target)
+			this.toggleExpansion($target.parent().find('.project-description'));
+		}
   	});
   	
   	return ProjectListView;

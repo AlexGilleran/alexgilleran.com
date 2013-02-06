@@ -364,11 +364,24 @@ h3 {
 	right: 20px;
 	top: 0;
 	color: #FFFFFF;
-	font-size: 0.9em;
 }
 
 .overview p {
 	margin-top: 0;
+	font-size: medium;
+	
+}
+
+/** Hack to overcome Webkit's shitty text spacing and kerning */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.overview p {
+		line-height: 1.2em;
+		font-size: 1.05em;
+	}
+	
+	.h2 {
+		letter-spacing: 0.02em;
+	}
 }
 
 .overview h2 {
@@ -405,21 +418,20 @@ h3 {
 }
 
 .project {
-	margin-bottom: 0.3em; 
+	margin-bottom: 0.3em;
 }
 
 .project-meta {
-	float: left;
-	margin-top: 0.2em;
+	float: left;   
+	margin-top: 0.8em;
 }
 
-.project-icon {
-	float: left;
-	width: 6em;
-	height: 6em;  
-	margin: 0.7em 1.3em 1.3em;
+.project-icon { 
 	border-radius: 5px;
-   /**border: 1px solid #444444;**/
+    float: left;
+    height: 4.5em;
+    margin: 0.8em 1em 0.8em 0.5em;
+    width: 4.5em;
 }
 
 .project-titles {
@@ -431,9 +443,7 @@ h3 {
 }
 
 .project-subtitle {
-	margin: 0;
-	margin-top: 0.15em;
-	margin-bottom: 0.15em;
+	margin: 0.1em 0;
 	float: left;
 }
 
@@ -446,13 +456,25 @@ h3 {
 .project-link {
 	float: left;
 	display: block;
-	margin-top: 0.15em;
+	margin-top: 0.05em;
 	clear: right;
 }
 
 .project-description {
 	float: left;
+	overflow: hidden;
 }
+
+.project-expander, .project-collapser {
+	clear: both;
+    float: right;
+    margin-right: 0.5em;
+    margin-top: -0.5em;
+}
+
+.project-collapser {
+    display: none;
+  }
 
 
 #content-aside {
@@ -491,7 +513,7 @@ h3 {
 }
 
 .news-text {
-
+	font-size: small;
 }
 
 .news-source {
@@ -504,7 +526,7 @@ h3 {
 .news-appendices {
 	margin-top: 0.8em;
 	padding-left: 2.5em;
-	font-size: 0.8em;
+	font-size: small;
 	clear: left;
 	margin-bottom: 0;    
 }

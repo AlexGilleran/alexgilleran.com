@@ -79,15 +79,27 @@ define([
 		
 		changeBackground : function() {
 			var themeColor = this.model.get('currentNode').get('theme').color;
-			var color = $.Color(themeColor.r, themeColor.g, themeColor.b, 0.2);
+			var color = $.Color(themeColor.r, themeColor.g, themeColor.b, 0.15);
 			
 			this.$el.animate({backgroundColor : color}, 500);
 		},
 
-		fitWindow : function(width) {			
-			if (this.model.get('currentNode').get('ready')) {
-				this.$el.find('.content-text').tinyscrollbar_update();
+		fitWindow : function(topDiff) {
+			var top;
+			
+			if (topDiff) {
+				top = -1 * this.$el.find('.overview').position().top;
 			}
+			
+			if (topDiff > 0) {
+				top = top - topDiff;
+			}
+			
+			if (top < 0) {
+				top = 0;
+			}
+			
+			this.$el.find('.content-text').tinyscrollbar_update(top);
 		}
   	});
   	
