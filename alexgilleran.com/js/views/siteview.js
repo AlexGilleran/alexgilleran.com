@@ -2,13 +2,16 @@ define([
   'jquery',     
   'underscore', 
   'backbone',
+  'handlebars',
   'js/models/externallinks', 
   'js/views/content/contentview',
   'js/views/navigation/navview',   
   'js/views/aside/newsasideview',   
-  'js/views/navigation/headerlinksview',   
-], function($, _, Backbone, ExternalLinks, ContentView, NavView, NewsAsideView, HeaderLinksView){
+  'js/views/navigation/headerlinksview',  
+  'text!templates/nav-link.css' 
+], function($, _, Backbone, Handlebars, ExternalLinks, ContentView, NavView, NewsAsideView, HeaderLinksView, CSSTemplate) {
 	var SiteView = Backbone.View.extend({
+		cssTemplate : Handlebars.compile(CSSTemplate),
   		el: $('body'),
 		
 		initialize : function() {
@@ -29,15 +32,18 @@ define([
 		render: function() {
 			this.navView = new NavView({el: $('#main-nav'), model: this.model});
 			this.contentView = new ContentView({el: $('#content-main'), model: this.model});
-			
-			var siteView = this;
-			
+
 			var headerLinks = new ExternalLinks();
 			
+			var siteView = this;
 			headerLinks.fetch().done(function() {
 				if ($(window).width() <= 640) {
 					headerLinks.add(siteView.model.models, {at: 0});
+				} else {
+					siteView.model.forEach(siteView.insertStyles, siteView);
 				}
+				
+				headerLinks.forEach(siteView.insertStyles, siteView);
 				
 				siteView.HeaderLinksView = new HeaderLinksView({
 					el : $('#site-header'), 
@@ -53,6 +59,17 @@ define([
 					$('.nav-link-text').css('color', '#FFFFFF');
 				}
 			});
+		},
+		
+		insertStyles : function(node) {
+			var customCss = this.cssTemplate({
+				'id': node.get('id'),
+				'r': node.get('theme').color.r,
+				'g': node.get('theme').color.g,
+				'b': node.get('theme').color.b,
+			});
+			
+			$('#dynamic-styles').append(customCss)
 		},
 		
 		renderAsideView : function() {

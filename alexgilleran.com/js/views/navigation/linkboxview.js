@@ -4,11 +4,9 @@ define([
 	'handlebars',
 	'jquery.color',
 	'text!templates/spacer.html',
-	'text!templates/nav-link.css'
-], function($, Backbone, Handlebars, $Color, SpacerTemplate, CSSTemplate){
+], function($, Backbone, Handlebars, $Color, SpacerTemplate){
 	var NavLinkView = Backbone.View.extend({
 		spacerTemplate : Handlebars.compile(SpacerTemplate),
-		cssTemplate : Handlebars.compile(CSSTemplate),
 		
 		tagName: 'li',
 		
@@ -42,15 +40,6 @@ define([
 			
 			this.$el.html(linkHtml);
 			
-			var customCss = this.cssTemplate({
-				'id': model.get('id'),
-				'r': model.get('theme').color.r,
-				'g': model.get('theme').color.g,
-				'b': model.get('theme').color.b,
-			});
-			
-			$('#dynamic-styles').append(customCss);
-		
 			this.setOpenStyling();
 		
 			if (this.model.get('ready')) {

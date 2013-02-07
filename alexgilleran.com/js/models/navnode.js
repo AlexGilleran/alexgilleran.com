@@ -1,4 +1,4 @@
-define(['backbone'], function(Backbone) {
+define(['underscore', 'backbone', 'handlebars'], function(_, Backbone, Handlebars) {
 	var NavNode = Backbone.Model.extend({
 		initialize : function() {
 			_.bindAll(this)
