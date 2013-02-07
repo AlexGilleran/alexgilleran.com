@@ -519,6 +519,7 @@ h3 {
 	font-size: 0.8em;
 	float: right;
 	font-weight: normal;
+	clear:both;
 }
 
 .news-appendices {
