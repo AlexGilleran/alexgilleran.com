@@ -16,12 +16,16 @@ define([
 			
 			this.listenTo(this.model, 'change:open', this.openNode);
 			
-			this.render();
+			this.openNode(this.model.get('currentNode'), true);
 		},
 				
-		openNode : function(node, opened) {
-			if (opened) {
-				this.render();
+		openNode : function(node, open) {
+			if (open) {
+				if (node.get('ready')) {
+					this.render();
+				} else {
+					node.once('change:ready', this.openNode, this);
+				}
 			}
 		},
 		
@@ -85,7 +89,7 @@ define([
 		},
 
 		fitWindow : function(topDiff) {
-			var top;
+			var top = 0;
 			
 			if (topDiff) {
 				top = -1 * this.$el.find('.overview').position().top;
