@@ -49,6 +49,18 @@ define([
 			}
 		},
 		
+		displayableNodesCount : function() {
+			var count = 0;
+			
+			this.forEach(function(node) {
+				if (!node.get('hidden')) {
+					count++;
+				}
+			});
+				
+			return count;
+		},
+		
 		set: Backbone.Model.prototype.set,
 		get: Backbone.Model.prototype.get,
 		_validate: Backbone.Model.prototype._validate,

@@ -136,7 +136,7 @@ h3 {
 #site-header {
 	position: absolute;
 	top: 0; left: 0; right: 0;
-	height: 60px;
+	height: 80px;
 }
 
 #content-row {
@@ -147,9 +147,7 @@ h3 {
 .header-text {
 	color: #888888;
 	font-size: 60px;
-	line-height: 60px;
-	margin-top: auto;
-	margin-bottom: auto;
+	margin-top: -5px;
 	margin-left: 5px;
 	float: right;
 }
@@ -178,6 +176,7 @@ h3 {
 	height: 60px;
 	width: 60px;
 	margin-left: 20px;
+	margin-bottom: 20px;
 	display: inline-block;
 }
 
@@ -249,7 +248,7 @@ h3 {
 	position: relative;
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 0.7em;
+	font-size: smaller;
 	vertical-align: bottom;
 }
 
@@ -466,10 +465,9 @@ h3 {
 }
 
 .project-expander, .project-collapser {
-	clear: both;
-    float: right;
+	display: block;
     margin-right: 0.5em;
-    margin-top: -0.5em;
+    text-align: right;
 }
 
 .project-collapser {
@@ -680,7 +678,19 @@ h3 {
    Modify as content requires.
    ========================================================================== */
 
+@media only screen and (max-width: 900px) {
+    .header-text {
+    	font-size: 30px;
+    }
+}
+
 @media only screen and (max-width: 640px) {
+	body {
+		left: 10px;
+		right: 10px;
+		top: 10px;
+		bottom: 10px;			
+	}
    
     #content-aside {
     	display: none;
@@ -691,12 +701,60 @@ h3 {
     }
     
     .header-text {
-    	display: none;
+    	position: absolute;
+    	top: 0;
+    	right: 0;
+		margin-top: 0;
     }
     
     #main-nav {
     	display: none;
     }
+    
+    .external-links-nav {
+    	width: 100%;
+    }
+    
+	#external-links {
+		width: 100%;
+	}
+	
+	.external-link {
+		margin-right: 10px;
+		margin-left: 0;
+		margin-bottom: 10px;
+	}
+	
+	.nav-link-text {
+		font-size: xx-small;
+	}
+	
+	.nav-link-icon {
+		opacity: 0.7
+	}
+	
+	.oblong {
+		border-radius: 5px;
+	}
+	
+	.overview, .overview p {
+		font-size: small;
+	}
+	
+	.section-header-text {
+		font-size: 2em;
+	}
+	
+	.section-text {
+		top: 3.2em;
+	}
+	
+	.content-icon-background {
+	    right: 10px;
+		bottom: 10px;
+		height: 150px;
+		width: 150px;
+	}
 }
 
 @media print,

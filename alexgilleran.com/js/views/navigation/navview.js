@@ -48,7 +48,7 @@ define([
 		},
 
 		fitWindow : function(navNodes) {
-			var navLinkCount = this.model.length;
+			var navLinkCount = this.model.displayableNodesCount();
 			var firstNode = navNodes.first()
 			var totalSpacing = firstNode.outerHeight(true) - firstNode.innerHeight();
 			var totalBorder = firstNode.outerHeight(false) - firstNode.innerHeight();		

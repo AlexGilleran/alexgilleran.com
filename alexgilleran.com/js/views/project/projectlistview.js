@@ -60,13 +60,13 @@ define([
 			var heightAfter;
 			
 			if ($descriptionDiv.attr('expanded')) {
-				$descriptionDiv.parent().find('.project-expander').show();
-				$descriptionDiv.parent().find('.project-collapser').hide();
+				$descriptionDiv.parent().find('.project-expander').css('display', 'block');
+				$descriptionDiv.parent().find('.project-collapser').css('display', 'none');
 				$descriptionDiv.attr('expanded', '');
 				heightAfter = $descriptionDiv.find('p').first().outerHeight(true);
 			} else {
-				$descriptionDiv.parent().find('.project-expander').hide();
-				$descriptionDiv.parent().find('.project-collapser').show();
+				$descriptionDiv.parent().find('.project-expander').css('display', 'none');
+				$descriptionDiv.parent().find('.project-collapser').css('display', 'block');
 				$descriptionDiv.attr('expanded', 'true');
 				
 				heightAfter = 0;
