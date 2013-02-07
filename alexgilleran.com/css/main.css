@@ -679,19 +679,11 @@ h3 {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
     .header-text {
     	font-size: 30px;
+    	margin-top: -5px;
     }
-}
-
-@media only screen and (max-width: 640px) {
-	body {
-		left: 10px;
-		right: 10px;
-		top: 10px;
-		bottom: 10px;			
-	}
    
     #content-aside {
     	display: none;
@@ -700,6 +692,49 @@ h3 {
     #content-main {
     	width: 100%;
     }
+    
+	body {
+		left: 10px;
+		right: 10px;
+		top: 10px;
+		bottom: 10px;			
+	}
+	
+	.external-link {
+		margin-left: 10px;
+		height: 30px;
+    	width: 30px;
+	}
+	
+	.nav-link-text {
+		font-size: xx-small;
+	}
+	
+	.overview, .overview p {
+		font-size: small;
+	}
+	
+	.section-header-text {
+		font-size: 2em;
+	}
+	
+	.section-text {
+		top: 3.2em;
+	}
+	
+	.content-icon-background {
+	    right: 10px;
+		bottom: 10px;
+		height: 150px;
+		width: 150px;
+	}
+	
+	.nav-node {
+		margin-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
     
     .header-text {
     	position: absolute;
@@ -726,35 +761,12 @@ h3 {
 		margin-bottom: 10px;
 	}
 	
-	.nav-link-text {
-		font-size: xx-small;
-	}
-	
 	.nav-link-icon {
 		opacity: 0.7
 	}
 	
 	.oblong {
 		border-radius: 5px;
-	}
-	
-	.overview, .overview p {
-		font-size: small;
-	}
-	
-	.section-header-text {
-		font-size: 2em;
-	}
-	
-	.section-text {
-		top: 3.2em;
-	}
-	
-	.content-icon-background {
-	    right: 10px;
-		bottom: 10px;
-		height: 150px;
-		width: 150px;
 	}
 }
 

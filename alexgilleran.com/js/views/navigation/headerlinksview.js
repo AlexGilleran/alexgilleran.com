@@ -42,7 +42,7 @@ define([
 			var marginHeight = 0;
 			var sideLength = 60
 			
-			if ($(window).width() <= 640) {
+			if ($(window).width() <= 480) {
 				var navLinkCount = this.model.displayableNodesCount();
 				var totalBorder = firstNode.outerWidth(false) - firstNode.innerWidth();	
 				
@@ -50,6 +50,8 @@ define([
 				
 				sideLength = (this.$el.width() - (totalSpacing - totalBorder) * (navLinkCount - 1) - totalBorder * navLinkCount) / navLinkCount;
 				marginHeight = this.$el.find('.header-text').height() + (totalSpacing - totalBorder);
+			} else if ($(window).width() <= 800) {
+				sideLength = 30;
 			}
 
 			this.$el.find('.external-links-nav').css('margin-top', marginHeight);

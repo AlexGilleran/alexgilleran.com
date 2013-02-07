@@ -37,7 +37,7 @@ define([
 			
 			var siteView = this;
 			headerLinks.fetch().done(function() {
-				if ($(window).width() <= 640) {
+				if ($(window).width() <= 480) {
 					headerLinks.add(siteView.model.models, {at: 0});
 				} else {
 					siteView.model.forEach(siteView.insertStyles, siteView);
@@ -54,8 +54,8 @@ define([
 				
 				siteView.fitWindow();
 				
-				var isTouchDevice = 'ontouchstart' in document.documentElement;
-				if (isTouchDevice) {
+				window.isTouchDevice = !!('ontouchstart' in document.documentElement);
+				if (window.isTouchDevice) {
 					$('.nav-link-text').css('color', '#FFFFFF');
 				}
 			});
@@ -88,8 +88,8 @@ define([
 		onWindowResize : function() {
 			currentWidth = $(window).width();
 			
-			if ((window.prevWidth > 640 && currentWidth <= 640) ||
-				window.prevWidth <= 640 && currentWidth > 640) {
+			if ((window.prevWidth > 480 && currentWidth <= 480) ||
+				window.prevWidth <= 480 && currentWidth > 480) {
 				this.render();
 			} else {
 				this.fitWindow();
@@ -104,7 +104,7 @@ define([
 			this.navView.resizeNavButtons();
 			
 			var contentWidth = this.$el.innerWidth();
-			if ($(window).width() > 640) {
+			if ($(window).width() > 480) {
 				contentWidth -= this.navView.$el.outerWidth(true) + generalMargin;
 			}
 			

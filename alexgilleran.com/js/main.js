@@ -7,7 +7,7 @@ require.config({
 		'handlebars': 'http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.2/handlebars.min',
 		'showdown': 'http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min',
 		'jquery.color': 'lib/jquery.color-2.1.1',
-		'jquery.tinyscrollbar': 'http://cdnjs.cloudflare.com/ajax/libs/tinyscrollbar/1.66/jquery.tinyscrollbar.min',
+		'jquery.tinyscrollbar': 'lib/jquery.tinyscrollbar',
 		'text': 'text'
 	},
   	shim: {

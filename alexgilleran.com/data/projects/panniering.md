@@ -1,4 +1,4 @@
-Panniering describes a trip I took for nearly 6 months across Europe. I'd dreamed of doign so ever since I'd been able to ride one. I'd been backpacking before but I'd read ride reports on advrider.com and get this wistful longing for that kind of freedom.
+Panniering describes a trip I took for nearly 6 months across Europe. I'd dreamed of doing so ever since I'd been able to ride one. I'd been backpacking before but I'd read ride reports on advrider.com and get this wistful longing for that kind of freedom.
 
 After a few years of working full-time I found myself with enough money saved, and as my employer allowed unpaid leave up to a year I had the chance to take the time off work... I had to go now or I'd dream about it forever. So I put my bike on a ship, flew over to meet it and spent the next 6 months riding from London around the top of Europe, down to Turkey and back along the mediterranean.. During my time I met a bunch of people, dealt with a bunch of setbacks (including being unable to walk for three weeks) and had a great time.
 
