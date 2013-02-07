@@ -41,7 +41,9 @@
 
     $.fn.tinyscrollbar_update = function(sScroll)
     {
-        return $( this ).data( 'tsb' ).update( sScroll ); 
+    	if ($(this).data('tsb')) {
+        	return $( this ).data( 'tsb' ).update( sScroll );
+    	}
     };
 
     function Scrollbar( root, options )
