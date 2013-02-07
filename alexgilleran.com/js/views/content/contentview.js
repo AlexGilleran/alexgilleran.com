@@ -53,6 +53,7 @@ define([
 				
 				contentFrame.$el.html(newContent);
 				var scrollDiv = contentFrame.$el.find('.content-text');
+				
 				scrollDiv.tinyscrollbar({
 					axis: 'y',
 					invertscroll: window.isTouchDevice

@@ -5,18 +5,16 @@ define([
 ], function($, _, Backbone) {
 	var Blurb = Backbone.Model.extend({
 		initialize : function() {
-			_.bindAll(this)
+			_.bindAll(this);
 		},
 		
 		fetch : function() {
-			if (!this.get('blurb-text'))	{
-				blurb = this;
-				$.ajax(this.url(), {
-					success : function(data, textStatus, jqXhr) {
-						blurb.set('blurb-text', data);
-					}
-				});
-			}
+			blurb = this;
+			return $.ajax(this.url(), {
+				success : function(data, textStatus, jqXhr) {
+					blurb.set('blurb-text', data);
+				}
+			});
 		},
 		
 		url: function() {

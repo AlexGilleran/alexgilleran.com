@@ -9,14 +9,14 @@ define([
 		converter : new Showdown.converter(),
 		
 		initialize : function() {
+			_.bindAll(this);
+			
 			// If there's already data in the model, render based on it.
 			if (this.model.get('blurb-text')) {
 				this.render();
+			} else {
+				this.model.fetch().done(this.render);
 			}
-			
-			// Rerender on changes to the model (caused by the fetch completing)
-			this.listenTo(this.model, 'change', this.render);
-			this.model.fetch();
 		},
 		
 		render: function() {
@@ -24,6 +24,8 @@ define([
 			var blurbHtml = this.converter.makeHtml(blurbMd);
 			
 			this.$el.html(blurbHtml);
+			
+			this.trigger('sizeChanged');
 		},
 	});
 	
