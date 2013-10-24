@@ -1,4 +1,7 @@
-define(['underscore', 'backbone', 'handlebars'], function(_, Backbone, Handlebars) {
+define(['underscore',
+        'backbone',
+        'handlebars'
+], function(_, Backbone, Handlebars) {
 	var NavNode = Backbone.Model.extend({
 		initialize : function() {
 			_.bindAll(this)
@@ -25,7 +28,7 @@ define(['underscore', 'backbone', 'handlebars'], function(_, Backbone, Handlebar
 
 		target : function() {
 			// If there's no content view for an element, open the url in a new window/tab
-			if (!this.get('contentViewUrl')) {
+			if (!this.get('contentView')) {
 				return '_blank'
 			} else {
 				return '_self';

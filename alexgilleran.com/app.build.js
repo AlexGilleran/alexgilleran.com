@@ -1,7 +1,5 @@
 ({
-    appDir: "./",
-    baseUrl: "./",
-    dir: "../appdirectory-build",
+    out: "../appdirectory-build/js/main.js",
     paths: {
     	'jquery': 'empty:',
 		'underscore': 'empty:',
@@ -11,10 +9,5 @@
 		'jquery.color': 'empty:',
 		'jquery.tinyscrollbar': 'empty:',
     },
-    modules: [
-        {
-            name: "js/main"
-            	
-        },
-    ]
+    name: 'js/main'
 })

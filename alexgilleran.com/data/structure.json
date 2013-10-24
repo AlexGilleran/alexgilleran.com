@@ -3,9 +3,9 @@
         "id": "about-me",
         "label": "about me",
         "url": "#/about-me",
-        "contentViewUrl": "js/views/content/blurbview",
+        "contentView": "blurbview",
         "model": {
-            "url": "js/models/blurb",
+            "class": "blurb",
             "attributes": {
                 "urlRoot": "data/aboutme.md"
             }
@@ -23,9 +23,9 @@
         "id": "projects",
         "label": "projects",
         "url": "#/projects",
-        "contentViewUrl": "js/views/project/projectlistview",
+        "contentView": "projectlistview",
         "model": {
-            "url": "js/models/projectlist"
+            "class": "projectlist"
         },
         "theme": {
             "iconTemplateUrl": "templates/icons/projects_icon.svg",
@@ -40,9 +40,9 @@
         "id": "blog",
         "label": "blog",
         "url": "#/blog",
-        "contentViewUrl": "js/views/content/blurbview",
+        "contentView": "blurbview",
         "model": {
-            "url": "js/models/blurb",
+            "class": "blurb",
             "attributes": {
                 "urlRoot": "data/blogpark.md"
             }
@@ -60,9 +60,9 @@
         "id": "error",
         "label": "Error",
         "url": "#/error",
-        "contentViewUrl": "js/views/content/blurbview",
+        "contentView": "blurbview",
         "model": {
-            "url": "js/models/blurb",
+            "class": "blurb",
             "attributes": {
                 "urlRoot": "data/error.md"
             }

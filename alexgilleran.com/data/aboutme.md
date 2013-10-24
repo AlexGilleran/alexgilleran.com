@@ -1,10 +1,9 @@
 I'm Alex Gilleran and this is my little corner of the information superhighway. I'm a developer in a number of technologies including:
 
-*  Java (Spring, Hibernate, Struts2)
+*  Java (Spring, Hibernate, Struts2, GWT)
 *  Android
 *  HTML5/CSS3
-*  JavaScript (particularly jQuery, Dojo, Backbone)
-*  Ruby on Rails (which I'm currently learning)
+*  JavaScript (particularly jQuery, Angular, node.js)
 
 When I'm not writing code, I enjoy motorcycling, playing games and coming up with short, awkward bios of myself.
 
