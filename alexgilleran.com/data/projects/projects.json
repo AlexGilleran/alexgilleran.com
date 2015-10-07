@@ -1,26 +1,68 @@
 {
-	"projects" : [{
-		"title" : "IceSoap",
-		"subtitle" : "Easy, asynchronous SOAP for Android",
-		"technologies": ["Android", "Jaxen", "Maven", "SOAP"],
-		"image" : "img/projects/icesoap-opt.svg",
-		"url" : "code.google.com/p/icesoap",
-		"descriptionUrl" : "data/projects/icesoap.md"
-	}, 
-	{
-		"title" : "alexgilleran.com",
-		"subtitle" : "My Little Corner of the Information Superhighway",
-		"technologies": ["HTML5", "CSS3", "jQuery", "Backbone", "Handlebars", "RequireJS", "Markdown"],
-		"image" : "img/logo.svg",
-		"url" : "alexgilleran.com",
-		"descriptionUrl" : "data/projects/alexgilleran.com.md"
-	},
-	{
-		"title" : "Panniering",
-		"subtitle" : "Around Europe by Motorcycle",
-		"technologies": ["Kawasaki Versys", "Petrol", "Spanners"],
-		"image" : "img/projects/panniering.jpg",
-		"url" : "panniering.alexgilleran.com",
-		"descriptionUrl" : "data/projects/panniering.md"
-	}]
+  "projects": [
+    {
+      "title": "JSX Control Statements",
+      "subtitle": "If and For for React JSX",
+      "technologies": [
+        "Javascript",
+        "React",
+        "JSTransform",
+        "Babel"
+      ],
+      "image": "img/projects/react.svg",
+      "url": "github.com/valtech-au/jsx-control-statements",
+      "descriptionUrl": "data/projects/jsx-control-statements.md"
+    },
+    {
+      "title": "HIIT Me",
+      "subtitle": "The definitive HIIT timer for Android",
+      "technologies": [
+        "Android"
+      ],
+      "image": "img/projects/hiitme.svg",
+      "url": "play.google.com/store/apps/details?id=com.alexgilleran.hiitme",
+      "descriptionUrl": "data/projects/hiit-me.md"
+    },
+    {
+      "title": "IceSoap",
+      "subtitle": "Easy, asynchronous SOAP for Android",
+      "technologies": [
+        "Android",
+        "Jaxen",
+        "Maven",
+        "SOAP"
+      ],
+      "image": "img/projects/icesoap-opt.svg",
+      "url": "github.com/AlexGilleran/IceSoap",
+      "descriptionUrl": "data/projects/icesoap.md"
+    },
+    {
+      "title": "alexgilleran.com",
+      "subtitle": "My Little Corner of the Information Superhighway",
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "jQuery",
+        "Backbone",
+        "Handlebars",
+        "RequireJS",
+        "Markdown"
+      ],
+      "image": "img/logo.svg",
+      "url": "alexgilleran.com",
+      "descriptionUrl": "data/projects/alexgilleran.com.md"
+    },
+    {
+      "title": "Panniering",
+      "subtitle": "Around Europe by Motorcycle",
+      "technologies": [
+        "Kawasaki Versys",
+        "Petrol",
+        "Spanners"
+      ],
+      "image": "img/projects/panniering.jpg",
+      "url": "panniering.alexgilleran.com",
+      "descriptionUrl": "data/projects/panniering.md"
+    }
+  ]
 }
