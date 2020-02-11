@@ -1,46 +1,25 @@
-appdirectory-build
-node_modules
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-*.rbc
-*.sassc
-.sass-cache
-capybara-*.html
-.rspec
-/.bundle
-/vendor/bundle
-/log/*
-/tmp/*
-/db/*.sqlite3
-/public/system/*
-/coverage/
-/spec/tmp/*
-**.orig
-rerun.txt
-pickle-email-*.html
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-*.pydevproject
-.project
-.metadata
-bin/**
-tmp/**
-tmp/**/*
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
-.settings/
-.loadpath
+# testing
+/coverage
 
-# External tool builders
-.externalToolBuilders/
+# next.js
+/.next/
+/out/
 
-# Locally stored "Eclipse launch configurations"
-*.launch
+# production
+/build
 
-# CDT-specific
-.cproject
+# misc
+.DS_Store
+.env*
 
-# PDT-specific
-.buildpath
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
