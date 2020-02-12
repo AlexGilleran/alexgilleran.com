@@ -7,14 +7,14 @@ export default function Home() {
       <Head>
         <title>Alex Gilleran</title>
       </Head>
-      <div className="container mx-auto max-w-screen-md">
+      <div className="container mx-auto max-w-screen-md px-4">
         <header>
           <h1 className="text-4xl text-center">Alex Gilleran</h1>
         </header>
 
         <section className="section">
           <p>
-            I am a software engineer and tech lead based in Sydney, Australia,
+            I am a principal software engineer and tech lead based in Sydney, Australia,
             currently working at{" "}
             <NewWindowLink href="https://data61.csiro.au">
               CSIRO's Data61
